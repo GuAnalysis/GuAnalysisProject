@@ -62,5 +62,13 @@ public class RolesandUsers
             roleManager.Create(new IdentityRole("customer"));
            
         }
+        if (!roleManager.RoleExists("doctor"))
+        {
+            roleManager.Create(new IdentityRole("doctor"));
+        }
+        if (!roleManager.RoleExists("nurse"))
+        {
+            roleManager.Create(new IdentityRole("nurse"));
+        }
     }
 }

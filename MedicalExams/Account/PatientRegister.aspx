@@ -1,10 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="PatientRegister.aspx.cs" Inherits="Account_PatientRegister" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="row" style="margin-left:15ex" >
-            <h2><%: Title %>Register</h2>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div class="row" style="margin-left: 15ex">
+        <h2><%: Title %>Register</h2>
     </div>
-    <div style="margin-left:15ex">
+    <div style="margin-left: 15ex">
 
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" BackColor="Salmon" />
 
@@ -29,7 +29,7 @@
                 </td>
             </tr>
 
-                <tr>
+            <tr>
                 <td>Birth Date</td>
                 <td>
                     <asp:TextBox ID="tbBirthDate" runat="server"></asp:TextBox>
@@ -76,7 +76,7 @@
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Invalid username." ControlToValidate="tbUsername" ValidationExpression="[a-zA-Z]\w{4,255}">*</asp:RegularExpressionValidator>
                 </td>
             </tr>
-             <tr>
+            <tr>
                 <td>Gender</td>
                 <td>
                     <asp:TextBox ID="tbGender" runat="server"></asp:TextBox></td>
@@ -84,11 +84,24 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="Gender required" ControlToValidate="tbGender" Text="*"></asp:RequiredFieldValidator>
                 </td>
             </tr>
+            <tr>
+                <td><b>Health Number:</b></td>
+                <td>
+                    <asp:TextBox ID="healthNumberTextBox" runat="server" ></asp:TextBox>
+
+                </td>
+       
+                <td>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorHealthNumber" runat="server" ErrorMessage="Health Number is required." ControlToValidate="healthNumberTextBox" Display="Dynamic" ToolTip="Health Number is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidatorHealthNumber" runat="server" ErrorMessage="Invalid Health Number" ValidationExpression="[0-9]{9}" ControlToValidate="healthNumberTextBox" Display="Dynamic">*</asp:RegularExpressionValidator>
+
+                </td>
+            </tr>
 
             <tr>
                 <td>Password</td>
                 <td>
-                    <asp:TextBox ID="tbPassword" runat="server" TextMode="Password" ></asp:TextBox></td>
+                    <asp:TextBox ID="tbPassword" runat="server" TextMode="Password"></asp:TextBox></td>
                 <td>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Password required" ControlToValidate="tbPassword" Text="*" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="tbPassword" ErrorMessage="Invalid password" ValidationExpression="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,})">*</asp:RegularExpressionValidator>
@@ -98,7 +111,7 @@
             <tr>
                 <td>Confirm password</td>
                 <td>
-                    <asp:TextBox ID="tbConfirmPassword" runat="server"  TextMode="Password" ></asp:TextBox>
+                    <asp:TextBox ID="tbConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
                 <td>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Confirmation password required" ControlToValidate="tbConfirmPassword" Text="*" Display="Dynamic"></asp:RequiredFieldValidator>
@@ -106,7 +119,7 @@
                 </td>
             </tr>
         </table>
-         <asp:Button ID="btRegister" runat="server" Text="Register" OnClick="btRegister_Click" BackColor="#5D7B9D" Font-Size="Smaller" />
+        <asp:Button ID="btRegister" runat="server" Text="Register" OnClick="btRegister_Click" BackColor="#5D7B9D" Font-Size="Smaller" />
         <asp:Button ID="btCancel" runat="server" Text="Cancel" CausesValidation="False" OnClick="btCancel_Click" Font-Size="Smaller" BackColor="#5D7B9D" />
     </div>
 </asp:Content>

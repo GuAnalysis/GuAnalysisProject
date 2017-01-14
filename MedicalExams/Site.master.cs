@@ -64,13 +64,9 @@ public partial class SiteMaster : MasterPage
         }
     }
 
-    protected void Page_Load(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
+    protected void Button1_Click(object sender, EventArgs e)
     {
         Context.GetOwinContext().Authentication.SignOut();
+        Response.Redirect("~/Default.aspx");
     }
 }

@@ -6,7 +6,7 @@
 
     <center>
         <header id="hDoctors" class="alt">
-            <h1><b>Doctor Panel</b></h1>
+        <h2><%: Title %>Doctor Panel</h2>
         </header>
      </center>
 
@@ -148,6 +148,17 @@
                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Invalid e-mail" ClientIDMode="Inherit" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="tbEmail"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
+                            <tr>
+                                <td><b>User Name:</b></td>
+                                <td>
+                                    <asp:TextBox ID="TextBoxuserName" runat="server" Text='<%# Bind("username") %>' />
+                                </td>
+                                <td>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="User Name is required." ControlToValidate="TextBoxuserName" Display="Dynamic" ToolTip="Name is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid name must be string" ValidationExpression="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" ControlToValidate="TextBoxuserName" Display="Dynamic">*</asp:RegularExpressionValidator>
+
+                                </td>
+                            </tr>
             </table>
 
             <asp:Button ID="btSave" runat="server" Text="Save" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Size="Small" CommandName="Update"/>
@@ -192,6 +203,17 @@
                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Invalid e-mail" ClientIDMode="Inherit" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="tbEmail"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
+                <tr>
+                                <td><b>User Name:</b></td>
+                                <td>
+                                    <asp:TextBox ID="TextBoxuserName" runat="server" Text='<%# Bind("username") %>' />
+                                </td>
+                                <td>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="User Name is required." ControlToValidate="TextBoxuserName" Display="Dynamic" ToolTip="Name is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid name must be string" ValidationExpression="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" ControlToValidate="TextBoxuserName" Display="Dynamic">*</asp:RegularExpressionValidator>
+
+                                </td>
+                            </tr>
             </table>
 
             <asp:Button ID="btSave" runat="server" Text="Save" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Size="Small" CommandName="Insert"/>
@@ -212,7 +234,7 @@
                 <tr>
                     <td><b>Speciality</b></td>
                     <td>
-                        <asp:DropDownList ID="ddlSpeciality" runat="server" DataSourceID="SqlDataSourceSpeciality" DataTextField="Speciality" DataValueField="Speciality"></asp:DropDownList> 
+                          <asp:Label ID="Label1" runat="server" Text='<%# Bind("Speciality") %>'></asp:Label>
                     </td>
                 </tr>
                 <tr>
@@ -231,6 +253,12 @@
                     <td>
                         &nbsp;</td>
                 </tr>
+                <tr>
+                                <td><b>User Name:</b></td>
+                                <td>
+                                    <asp:Label ID="doctortUserNameLabel" runat="server" Text='<%# Bind("username") %>' />
+                                </td>
+                            </tr>
             </table>
 
         </ItemTemplate>
@@ -241,8 +269,8 @@
         <asp:SqlDataSource ID="SqlDataSourceDetailsDoctors" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>"
      
             DeleteCommand="DELETE FROM [Doctor] WHERE [Doctor_ID] = @Doctor_ID"
-            InsertCommand="INSERT INTO [Doctor] ( [Doctor_name], [Speciality], [Doctor_phone], [Doctor_mail]) VALUES ( @Doctor_name, @Speciality, @Doctor_phone, @Doctor_mail)"
-            SelectCommand="SELECT Doctor_ID, Doctor_name, Speciality, Patient_ID, Doctor_phone, Doctor_mail FROM Doctor WHERE (Doctor_ID = @Doctor_ID)"
+            InsertCommand="INSERT INTO [Doctor] ( [Doctor_name], [Speciality], [Doctor_phone], [Doctor_mail], [username]) VALUES ( @Doctor_name, @Speciality, @Doctor_phone, @Doctor_mail, @username)"
+            SelectCommand="SELECT Doctor_ID, Doctor_name, Speciality, Patient_ID, Doctor_phone, username, Doctor_mail FROM Doctor WHERE (Doctor_ID = @Doctor_ID)"
             UpdateCommand="UPDATE [Doctor] SET [Doctor_name] = @Doctor_name, [Speciality] = @Speciality, [Doctor_phone] = @Doctor_phone, [Doctor_mail] = @Doctor_mail WHERE [Doctor_ID] = @Doctor_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Doctor_ID" Type="Int32"></asp:Parameter>
@@ -252,6 +280,7 @@
                 <asp:Parameter Name="Speciality" Type="String"></asp:Parameter>
                 <asp:Parameter Name="Doctor_phone" Type="String"></asp:Parameter>
                 <asp:Parameter Name="Doctor_mail" Type="String"></asp:Parameter>
+                <asp:Parameter Name="username" />
             </InsertParameters>
             <SelectParameters>
                 <asp:ControlParameter ControlID="gridviewDoctors" Name="Doctor_ID" PropertyName="SelectedValue" />
@@ -264,7 +293,6 @@
                 <asp:Parameter Name="Doctor_ID" Type="Int32"></asp:Parameter>
             </UpdateParameters>
             </asp:SqlDataSource>
-
         <br />
 
 

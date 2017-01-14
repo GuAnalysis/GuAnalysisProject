@@ -4,7 +4,7 @@
         <br>
        <center>
         <header id="hPatients" class="alt">
-            <h1><b>Patient Panel</b></h1>
+        <h2><%: Title %>Patient Panel</h2>
         </header>
      </center>        
     
@@ -45,9 +45,7 @@
                 </table>
                          
                         </asp:Panel>
-                        </div>
-                        <br/>
-                    <br/> 
+                     
         <div style="margin-left:auto; margin-right:auto; width:800px">
 
                             <asp:GridView ID="gridViewPatients" runat="server"   DataKeyNames="Patient_ID"  AllowPaging="True" AutoGenerateColumns="False" CellPadding="4"  ForeColor="#333333" GridLines="None" AllowSorting="True" DataSourceID="SqlDataSourceGridPatients" OnSelectedIndexChanged="gridViewPatients_SelectedIndexChanged">
@@ -192,7 +190,7 @@
                                 </td>
                                 <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="User Name is required." ControlToValidate="TextBoxuserName" Display="Dynamic" ToolTip="Name is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid name must be string" ValidationExpression="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" ControlToValidate="patientNameTextBox" Display="Dynamic">*</asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid name must be string" ValidationExpression="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" ControlToValidate="TextBoxuserName" Display="Dynamic">*</asp:RegularExpressionValidator>
 
                                 </td>
                             </tr>
@@ -203,7 +201,7 @@
                                 </td>
                                 <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Email is required." ControlToValidate="TextBoxEmail" Display="Dynamic" ToolTip="Name is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Invalid e-mail" ClientIDMode="Inherit" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="TextBoxEmail"></asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Invalid e-mail" ClientIDMode="Inherit" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="TextBoxEmail">*</asp:RegularExpressionValidator>
 
                                 </td>
                             </tr>
@@ -240,11 +238,11 @@
                                 <td><b>Birthdate:</b></td>
                                 <td>
                                  
-                                    <asp:TextBox ID="TextBoxBirthDate" runat="server" Text='<%# Bind("Birth_date") %>' />
+                                    <asp:TextBox ID="TextBoxBirthDate" runat="server" Text='<%# Bind("Birth_date", "{0:d}") %>' />
 
                                 </td>
                                  <td>
-                             <asp:RegularExpressionValidator ID="RegularExpressionValidatorBirthdate" runat="server" ErrorMessage="Invalid date must be (eg:aa.bb.cccc)" ValidationExpression="(\d{1,2}\.\d{1,2}\.\d{4})" ControlToValidate="TextBoxBirthDate" Display="Dynamic">*</asp:RegularExpressionValidator>
+                             <asp:RegularExpressionValidator ID="RegularExpressionValidatorBirthdate" runat="server" ErrorMessage="Invalid date must be (eg:dd.mm.yyyy)" ValidationExpression="(\d{1,2}\.\d{1,2}\.\d{4})" ControlToValidate="TextBoxBirthDate" Display="Dynamic">*</asp:RegularExpressionValidator>
 
                                  </td>
                        
@@ -316,7 +314,7 @@
                                 </td>
                                 <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Email is required." ControlToValidate="TextBoxEmail" Display="Dynamic" ToolTip="Name is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Invalid e-mail" ClientIDMode="Inherit" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="TextBoxEmail"></asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Invalid e-mail" ClientIDMode="Inherit" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="TextBoxEmail">*</asp:RegularExpressionValidator>
 
                                 </td>
                             </tr>
@@ -354,11 +352,11 @@
                                 <td><b>Birthdate:</b></td>
                                 <td>
                                  
-                                    <asp:TextBox ID="TextBoxBirthDate" runat="server" Text='<%# Bind("Birth_date") %>' />
+                                    <asp:TextBox ID="TextBoxBirthDate" runat="server" Text='<%# Bind("Birth_date", "{0:d}") %>' />
 
                                 </td>
                                  <td>
-                             <asp:RegularExpressionValidator ID="RegularExpressionValidatorBirthdate" runat="server" ErrorMessage="Invalid date must be (eg:aa.bb.cccc)" ValidationExpression="(\d{1,2}\.\d{1,2}\.\d{4})" ControlToValidate="TextBoxBirthDate" Display="Dynamic">*</asp:RegularExpressionValidator>
+                             <asp:RegularExpressionValidator ID="RegularExpressionValidatorBirthdate" runat="server" ErrorMessage="Invalid date must be (eg:dd.mm.yyyy)" ValidationExpression="(\d{1,2}\.\d{1,2}\.\d{4})" ControlToValidate="TextBoxBirthDate" Display="Dynamic">*</asp:RegularExpressionValidator>
 
                                  </td>
                        
@@ -382,50 +380,50 @@
                         <table>
                             <tr>
                                 <td><b>Patient Name:</b></td>
-                                <td>
+                                <td style="width: 202px">
                                     <asp:Label ID="patientNameLabel" runat="server" Text='<%# Bind("Patient_name") %>' />
                                 </td>
                             </tr>
                               <tr>
                                 <td><b>Patient User Name:</b></td>
-                                <td>
+                                <td style="width: 202px">
                                     <asp:Label ID="patientUserNameLabel" runat="server" Text='<%# Bind("Patient_username") %>' />
                                 </td>
                             </tr>
                                  <tr>
                                 <td><b>Patient Email:</b></td>
-                                <td>
+                                <td style="width: 202px">
                                     <asp:Label ID="patientEmailLabel" runat="server" Text='<%# Bind("email") %>' />
                                 </td>
                             </tr>
                             <tr>
                                 <td><b>Health Number:</b></td>
-                                <td>
+                                <td style="width: 202px">
                                     <asp:Label ID="healthNumberLabel" runat="server" Text='<%# Bind("Health_Number") %>' />
                                 </td>
                             </tr>
                             <tr>
                                 <td><b>Gender:</b></td>
-                                <td>
+                                <td style="width: 202px">
                                     <asp:Label ID="genderLabel" runat="server" Text='<%# Bind("Gender") %>' />
                                 </td>
                             </tr>
                             <tr>
                                 <td><b>Address:</b></td>
-                                <td>
+                                <td style="width: 202px">
                                     <asp:Label ID="addressLabel" runat="server" Text='<%# Bind("Patient_address") %>' />
                                 </td>
                             </tr>
                             <tr>
                                 <td><b>Postal Code:</b></td>
-                                <td>
+                                <td style="width: 202px">
                                     <asp:Label ID="postalCodeLabel" runat="server" Text='<%# Bind("Postal_code") %>' />
                                 </td>
                             </tr>
                             <tr>
                                 <td><b>Birth Date:</b></td>
-                                <td>
-                                    <asp:Label ID="birthDateLabel" runat="server" Text='<%# Bind("Birth_date") %>' />
+                                <td style="width: 202px">
+                                    <asp:Label ID="birthDateLabel" runat="server" Text='<%# Bind("Birth_date", "{0:d}") %>' />
                                 </td>
                             </tr>
                         </table>

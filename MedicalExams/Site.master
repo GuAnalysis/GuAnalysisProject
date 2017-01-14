@@ -59,19 +59,52 @@
 							<nav id="nav">
 								<ul>
 									<li class="current"><a href="index.html">Main Page</a></li>
-									
-                                    <li>
-										<a href="~/Account/Login.aspx" runat="server">Login</a>
-										<ul>
-											<li><a href="#">Administrator</a></li>
-											<li><a href="#">Patient</a></li>
-											<li><a href="#">Doctor</a></li>
-										</ul>
-									</li>
-									<li><a href="left-sidebar.html">Register</a></li>
-									<li><a href="right-sidebar.html">About Us</a></li>
+                                    <asp:LoginView ID="LoginView1" runat="server">
+                                        <AnonymousTemplate>
+                                            <%--<li class="current">
+                                                <a href="~/Account/Login.aspx" runat="server">Login</a>
+                                                <ul>
+                                                    <li><a href="#">Nurse</a></li>
+                                                    <li><a href="#">Patient</a></li>
+                                                    <li><a href="#">Doctor</a></li>
+                                                </ul>
+                                            </li>--%>
+                                            <li class="current">
+                                                <a href="#" runat="server">Login</a>
+                                                <ul>
+                                                    <li><a runat="server" href="~/customer/EditPersonalData.aspx">Patient</a></li>
+                                                    <li><a runat="server" href="~/doctor/EditPersonalData.aspx">Doctor</a></li>
+                                                    <li><a runat="server" href="~/nurse/EditPersonalData.aspx">Nurse</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="current">
+                                                <a href="#" runat="server">Register</a>
+                                                <ul>
+                                                    <li><a runat="server" href="~/Account/PatientRegister.aspx">Patient</a></li>
+                                                    <li><a runat="server" href="~/Account/DoctorRegister.aspx">Doctor</a></li>
+                                                    <li><a runat="server" href="~/Account/NurseRegister.aspx">Nurse</a></li>
+                                                </ul>
+                                            </li>
+                                        </AnonymousTemplate>
+                                        <LoggedInTemplate>
+
+                                            <li class="current">
+                                                <asp:LoginName ID="LoginName1" runat="server" />
+                                            </li>
+                                            <li class="current">
+                                                <asp:LinkButton runat="server" Text="Logout" OnClick="Button1_Click"/></li>
+
+                                        </LoggedInTemplate>
+                                    </asp:LoginView>
+                                            <li class="current">
+									<a href="right-sidebar.html">About Us</a></li>
 								</ul>
 							</nav>
+
+                          
+                               
+               
+
 
 					</header>
 				</div>

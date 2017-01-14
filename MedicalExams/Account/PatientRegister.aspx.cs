@@ -39,15 +39,17 @@ private void CreateCustomer()
     {
         connection = new SqlConnection(ConfigurationManager.ConnectionStrings["med_exConnectionString1"].ConnectionString);
 
-        SqlCommand commandInsertPatient = new SqlCommand("INSERT INTO Patient (Patient_name, Patient_phone, email, Patient_address, Birth_date, Postal_code,Patient_username, Gender) VALUES (@Patient_name, @Patient_phone, @email, @Patient_address, @Birth_date, @Postal_code, @Patient_username, @Gender);", connection);
-        commandInsertPatient.Parameters.AddWithValue("Patient_name", tbName.Text);
-            commandInsertPatient.Parameters.AddWithValue("Patient_phone", tbPhone.Text);
-            commandInsertPatient.Parameters.AddWithValue("email", tbEmail.Text);
+        SqlCommand commandInsertPatient = new SqlCommand("INSERT INTO Patient (Patient_name, Patient_address, Patient_phone, Postal_code, Birth_date, Gender, Health_number, Patient_username, email) VALUES (@Patient_name, @Patient_address, @Patient_phone, @Postal_code, @Birth_date, @Gender, @Health_number, @Patient_username, @email);", connection);
+            commandInsertPatient.Parameters.AddWithValue("Patient_name", tbName.Text);
             commandInsertPatient.Parameters.AddWithValue("Patient_address", tbAddress.Text);
+            commandInsertPatient.Parameters.AddWithValue("Patient_phone", tbPhone.Text);
             commandInsertPatient.Parameters.AddWithValue("Postal_code", tbPostalCode.Text);
             commandInsertPatient.Parameters.AddWithValue("Birth_date", tbBirthDate.Text);
-            commandInsertPatient.Parameters.AddWithValue("Patient_username", tbUsername.Text);
             commandInsertPatient.Parameters.AddWithValue("Gender", tbGender.Text);
+            commandInsertPatient.Parameters.AddWithValue("Health_number", healthNumberTextBox.Text);
+            commandInsertPatient.Parameters.AddWithValue("Patient_username", tbUsername.Text);
+            commandInsertPatient.Parameters.AddWithValue("email", tbEmail.Text);
+
             connection.Open();
             commandInsertPatient.ExecuteNonQuery();
     }
