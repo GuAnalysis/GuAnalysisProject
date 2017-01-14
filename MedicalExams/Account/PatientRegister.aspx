@@ -77,15 +77,17 @@
                 </td>
             </tr>
             <tr>
-                <td>Gender</td>
-                <td>
-                    <asp:TextBox ID="tbGender" runat="server"></asp:TextBox></td>
-                <td>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="Gender required" ControlToValidate="tbGender" Text="*"></asp:RequiredFieldValidator>
-                </td>
-            </tr>
+                     <td>Gender:</td>
+                                <td>
+                                    <asp:DropDownList ID="DropDownListGender" runat="server" DataTextField="Gender" DataValueField="Gender" SelectedValue='<%# Bind("Gender") %>'>
+                                        <asp:ListItem Value="M">Male</asp:ListItem>
+                                        <asp:ListItem Value="F">Female</asp:ListItem>
+                                    </asp:DropDownList>
+                                </td>
+                            
+                            </tr>
             <tr>
-                <td><b>Health Number:</b></td>
+                <td>Health Number:</td>
                 <td>
                     <asp:TextBox ID="healthNumberTextBox" runat="server" ></asp:TextBox>
 
