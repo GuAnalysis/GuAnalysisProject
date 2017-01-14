@@ -45,7 +45,7 @@ private void CreateCustomer()
             commandInsertPatient.Parameters.AddWithValue("Patient_phone", tbPhone.Text);
             commandInsertPatient.Parameters.AddWithValue("Postal_code", tbPostalCode.Text);
             commandInsertPatient.Parameters.AddWithValue("Birth_date", tbBirthDate.Text);
-            commandInsertPatient.Parameters.AddWithValue("Gender", tbGender.Text);
+            commandInsertPatient.Parameters.AddWithValue("Gender", DropDownListGender.Text);
             commandInsertPatient.Parameters.AddWithValue("Health_number", healthNumberTextBox.Text);
             commandInsertPatient.Parameters.AddWithValue("Patient_username", tbUsername.Text);
             commandInsertPatient.Parameters.AddWithValue("email", tbEmail.Text);

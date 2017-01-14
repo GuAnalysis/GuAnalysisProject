@@ -26,7 +26,8 @@
                     <td>
                         <asp:TextBox ID="tbPhone" runat="server"></asp:TextBox>
                         <asp:CompareValidator ID="CompareValidatorPhone" runat="server" ErrorMessage="Phone number cannot be consisted of letters!" Operator="DataTypeCheck" SetFocusOnError="True" ToolTip="Phone number cannot be consisted of letters!" Type="Double" ControlToValidate="tbPhone" Display="Dynamic">*</asp:CompareValidator>
-
+                        <td><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Name is required" Display="Dynamic" ControlToValidate="tbPhone">*</asp:RequiredFieldValidator>
+</td>
                     </td>
                 </tr>
                 <tr>
@@ -35,6 +36,8 @@
                         <asp:TextBox ID="tbEmail" runat="server" ></asp:TextBox>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Invalid e-mail" ClientIDMode="Inherit" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="tbEmail">*</asp:RegularExpressionValidator>
                     </td>
+                    <td><td><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Name is required" Display="Dynamic" ControlToValidate="tbEmail">*</asp:RequiredFieldValidator>
+</td>
                 </tr>
              <tr>
                 <td><b>Postal code</b></td>
@@ -42,7 +45,9 @@
                     <asp:TextBox ID="tbPostalCode" runat="server"></asp:TextBox></td>
                 <td>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Postal code required" ControlToValidate="tbAddress" Text="*"></asp:RequiredFieldValidator>
-                </td>
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidatorPostalCode" runat="server" ErrorMessage="Invalid postal code must be (eg:1234-546)" ValidationExpression="[0-9]{4}-[0-9]{3}" ControlToValidate="tbPostalCode" Display="Dynamic">*</asp:RegularExpressionValidator>
+
+          </td>
             </tr>
              <tr>
                 <td><b>Address</b></td>

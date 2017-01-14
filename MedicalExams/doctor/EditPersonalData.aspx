@@ -27,6 +27,8 @@
                     <td><b>Speciality</b></td>
                     <td>
                         <asp:DropDownList ID="ddlSpeciality" runat="server" DataSourceID="SqlDataSourceSpeciality" DataTextField="Speciality" DataValueField="Speciality" SelectedValue='<%# Bind("Speciality") %>'></asp:DropDownList> 
+                                                        <asp:SqlDataSource ID="SqlDataSourceSpeciality" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>" SelectCommand="SELECT [Speciality] FROM [Doctor]"></asp:SqlDataSource>
+
                     </td>
                 </tr>
                 <tr>
@@ -44,17 +46,7 @@
                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Invalid e-mail" ClientIDMode="Inherit" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="tbEmail"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
-                            <tr>
-                                <td><b>User Name:</b></td>
-                                <td>
-                                    <asp:TextBox ID="TextBoxuserName" runat="server" Text='<%# Bind("username") %>' />
-                                </td>
-                                <td>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="User Name is required." ControlToValidate="TextBoxuserName" Display="Dynamic" ToolTip="Name is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid name must be string" ValidationExpression="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" ControlToValidate="TextBoxuserName" Display="Dynamic">*</asp:RegularExpressionValidator>
-
-                                </td>
-                            </tr>
+                           
                  <tr>
                         <td><asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" /></td>
                         <td><asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" /></td>

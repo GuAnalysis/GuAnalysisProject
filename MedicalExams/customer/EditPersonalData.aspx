@@ -9,6 +9,8 @@
      
         <asp:FormView ID="FormView1" runat="server" DataKeyNames="Patient_ID" DataSourceID="SqlDataSourcePatient">
             <EditItemTemplate>
+          <asp:ValidationSummary ID="ValidationSummaryPatients" runat="server" BackColor="#FF9999" ForeColor="Maroon" />
+
                  <table>
                     <tr>
                         <td>Name:</td>
@@ -27,7 +29,7 @@
                     <tr>
                         <td>Postal code:</td>
                         <td><asp:TextBox ID="Postal_codeTextBox" runat="server" Text='<%# Bind("Postal_code") %>' /></td>
-                   
+                   <td><asp:RegularExpressionValidator ID="RegularExpressionValidatorPostalCode" runat="server" ErrorMessage="Invalid postal code must be (eg:1234-546)" ValidationExpression="[0-9]{4}-[0-9]{3}" ControlToValidate="Postal_codeTextBox" Display="Dynamic">*</asp:RegularExpressionValidator></td>
                     </tr>
                     <tr>
 
@@ -35,6 +37,16 @@
                         <td><asp:TextBox ID="Birth_dateTextBox" runat="server" Text='<%# Bind("Birth_date", "{0:d}") %>' /></td>
                 
                     </tr>
+                     <tr>
+                     <td>Gender:</td>
+                                <td>
+                                    <asp:DropDownList ID="DropDownListGender" runat="server" DataTextField="Gender" DataValueField="Gender" SelectedValue='<%# Bind("Gender") %>'>
+                                        <asp:ListItem Value="M">Male</asp:ListItem>
+                                        <asp:ListItem Value="F">Female</asp:ListItem>
+                                    </asp:DropDownList>
+                                </td>
+                            
+                            </tr>
                      <tr>
                         <td>Email:</td>
                         <td><asp:TextBox ID="emailTextBox" runat="server" Text='<%# Bind("email") %>' /></td>
@@ -105,12 +117,7 @@
             <ItemTemplate>
                 <table>
 
-                    <tr>
-                        <td>ID:</td>
-                        <td>
-                            <asp:Label ID="Patient_IDLabel" runat="server" Text='<%# Eval("Patient_ID") %>' /></td>
-                    </tr>
-
+                 
                     <tr>
                         <td>Name:</td>
                         <td>
@@ -146,12 +153,12 @@
 
                     </tr>
 
-                    <tr>
-                        <td>Gender:</td>
-                        <td>
-                            <asp:Label ID="GenderLabel" runat="server" Text='<%# Bind("Gender") %>' /></td>
+                     <tr>
+                                <td>Gender:</td>
+                                <td>
+                                   <asp:Label ID="LabelGender" runat="server" Text='<%# Bind("Gender") %>' /></td>
 
-                    </tr>
+                            </tr>
                     <tr>
                         <td>Health number:</td>
                         <td>
