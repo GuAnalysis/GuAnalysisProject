@@ -91,7 +91,7 @@ public partial class TypeofExams : System.Web.UI.Page
             GridViewExam.DataBind();
 
             panelInfo.Visible = true;
-            showSuccessInfo("Product deleted!");
+            showSuccessInfo("Exam deleted!");
         }
         catch (Exception)
         {
