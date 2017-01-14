@@ -58,7 +58,7 @@
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
-									<li class="current"><a href="index.html">Main Page</a></li>
+									<li class="current"><a href="Default.aspx">Main Page</a></li>
                                     <asp:LoginView ID="LoginView1" runat="server">
                                         <AnonymousTemplate>
                                             <%--<li class="current">
