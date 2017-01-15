@@ -13,15 +13,13 @@
     <asp:Panel ID="panelGridPayments" runat="server">
     
     <div style="margin-left:21ex">
-        <asp:Panel ID="panelSearch" runat="server" Font-Bold="True" Font-Size="Medium" Font-Strikeout="False" Font-Underline="False">
+        <asp:Panel ID="panelSearch" runat="server"  Font-Size="Medium" Font-Strikeout="False" Font-Underline="False">
             <table>
                 <tr>
-                    <td style="width: 133px">Patient ID:</td>                   
+                    <td style="width:133px"><b>Patient Username</b></td>                   
                 </tr>
                 <tr>
-                    <td>
-                        <asp:Label ID="LabelID" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px"></asp:Label>
-                    </td>
+                    <td style="width:133px"><%: User.Identity.GetUserName() %></td>                   
                 </tr>
             </table>
         </asp:Panel>
@@ -37,16 +35,16 @@
 
         <asp:GridView ID="gridviewPayments" runat="server" AutoGenerateColumns="False" DataKeyNames="Exam_ID" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display.">
             <Columns>
-                 
-    
-                <asp:BoundField DataField="Exam_Name" HeaderText="Exam_Name" SortExpression="Exam_Name" />
-                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price"/>
-          <asp:templatefield HeaderText="Select">
+                 <asp:templatefield HeaderText="Select">
             <itemtemplate>
                 <asp:checkbox ID="chkStatus"
                runat="server"></asp:checkbox>
             </itemtemplate>
         </asp:templatefield>
+    
+                <asp:BoundField DataField="Exam_Name" HeaderText="Exam_Name" SortExpression="Exam_Name" />
+                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price"/>
+          
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>" DeleteCommand="DELETE FROM [Exam] WHERE [Exam_ID] = @Exam_ID" InsertCommand="INSERT INTO [Exam] ([ExamType_ID], [Exam_Name], [Price], [Fasting], [Smoke], [Alcoholic_Drinks], [Urgent], [Scheduler_ID], [Duration]) VALUES (@ExamType_ID, @Exam_Name, @Price, @Fasting, @Smoke, @Alcoholic_Drinks, @Urgent, @Scheduler_ID, @Duration)" ProviderName="<%$ ConnectionStrings:med_exConnectionString1.ProviderName %>" SelectCommand="SELECT [Exam_ID], [ExamType_ID], [Exam_Name], [Price], [Fasting], [Smoke], [Alcoholic_Drinks], [Urgent], [Scheduler_ID], [Duration] FROM [Exam]" UpdateCommand="UPDATE [Exam] SET [ExamType_ID] = @ExamType_ID, [Exam_Name] = @Exam_Name, [Price] = @Price, [Fasting] = @Fasting, [Smoke] = @Smoke, [Alcoholic_Drinks] = @Alcoholic_Drinks, [Urgent] = @Urgent, [Scheduler_ID] = @Scheduler_ID, [Duration] = @Duration WHERE [Exam_ID] = @Exam_ID">
@@ -85,7 +83,6 @@
     </asp:Panel>
 
 
-        <asp:Button ID="btPay" runat="server" Text="PAY" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="Medium" Height="50px" Visible="True" Width="100px" OnClick="btPay_Click" />
         <asp:Label ID="lblmsg" runat="server" />
 
     <br />

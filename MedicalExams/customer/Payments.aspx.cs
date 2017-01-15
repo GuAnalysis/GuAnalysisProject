@@ -26,7 +26,7 @@ public partial class Payments : System.Web.UI.Page
   
     protected void btPay_Click(object sender, EventArgs e)
     {
-        Int32 totalMVValue = 0;
+       decimal totalMVValue = 0;
 
         // Iterate through the Products.Rows property
         foreach (GridViewRow row in gridviewPayments.Rows)
@@ -36,14 +36,15 @@ public partial class Payments : System.Web.UI.Page
             if (mvSelectorCheckBox != null && mvSelectorCheckBox.Checked)
             {
                 // First, get the primaryId for the selected row
-                int mvValue =
-                       Convert.ToDecimal(row.Cells[1]);
+                decimal mvValue =
+                       Convert.ToDecimal(row.Cells[2].Text);
                 totalMVValue += mvValue;
              
             }
 
         }
         lblmsg.Text = Convert.ToString( totalMVValue);
+        Response.Redirect("~/customer/TypeofPayment.aspx");
 
     }
 
