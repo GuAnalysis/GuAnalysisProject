@@ -256,9 +256,9 @@
                         <td>
                             <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit"></asp:LinkButton></td>
                     </tr>
-
+                    
                     <table>
-            </ItemTemplate>
+            </ItemTemplate>  
         </asp:FormView>
     </div>
         

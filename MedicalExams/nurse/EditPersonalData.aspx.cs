@@ -13,4 +13,9 @@ public partial class nurse_EditPersonalData : System.Web.UI.Page
    
     }
 
+
+    protected void ButtonScheduleExams_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/ExamScheduler.aspx");
+    }
 }

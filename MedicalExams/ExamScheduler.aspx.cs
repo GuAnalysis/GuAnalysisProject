@@ -11,4 +11,28 @@ public partial class Scheduler : System.Web.UI.Page
     {
 
     }
+
+    protected void ExamButton_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/manager/TypeOfExams.aspx");
+    }
+
+    protected void ButtonScheduler_Click(object sender, EventArgs e)
+    {
+        SchedulerPanel.Visible = true;
+        ScheduledExamsPanel.Visible = true;
+    }
+
+    protected void ButtonExams_Click(object sender, EventArgs e)
+    {
+        SchedulerPanel.Visible = false;
+        ScheduledExamsPanel.Visible = false;
+    }
+
+    protected void CalendarExamDate_SelectionChanged(object sender, EventArgs e)
+    {
+        DateLabel.Text = CalendarExamDate.SelectedDate.ToString("dd.MM.yyyy");
+        CalendarExamDate.Visible = true;
+
+    }
 }
