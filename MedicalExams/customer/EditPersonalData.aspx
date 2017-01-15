@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="EditPersonalData.aspx.cs" Inherits="customer_EditPersonalData" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="row" style="margin-left:21ex" >
+
+    <div class="row">
         <h2><%: Title %>Personal Data</h2>
         <br />
         <br />
