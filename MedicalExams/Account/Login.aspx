@@ -3,14 +3,16 @@
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1">
-        <div class="row" style="margin-left:15ex" >
+
+        <div class="row" style="margin-left:65ex" >
             <h2><%: Title %></h2>
         </div>
-    <div class="row" style="margin-left:15ex" >
+
+    <div class="row" style="margin-left:50ex" >
         <div class="col-md-8">
             <section id="loginForm">
                 <div class="form-horizontal" >
-                    <h4>Use a local account to log in.</h4>
+                    <h4 style="margin-left:8ex">Use a local account to log in.</h4>
                     <hr />
                     <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
                         <p class="text-danger">
@@ -18,9 +20,9 @@
                         </p>
                     </asp:PlaceHolder>
                     <div class="form-group">
-                        <asp:Label runat="server" AssociatedControlID="UserName" CssClass="col-md-2 control-label">User name</asp:Label>
+                        <asp:Label runat="server" AssociatedControlID="UserName" CssClass="col-md-2 control-label">Username</asp:Label>
                         <div class="col-md-10">
-                            <asp:TextBox runat="server" ID="UserName" CssClass="form-control" />
+                            <asp:TextBox runat="server" ID="UserName" CssClass="form-control" Height="35px" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName"
                                 CssClass="text-danger" ErrorMessage="The user name field is required." />
                     </div>
@@ -28,7 +30,7 @@
                     <div class="form-group">
                         <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">Password</asp:Label>
                         <div class="col-md-10">
-                            <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
+                            <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" Height="35px" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password field is required." />
                         </div>
                     </div>
@@ -40,7 +42,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="margin-left:5ex">
                         <div class="col-md-offset-2 col-md-10">
                             <asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-default" BackColor="#5D7B9D" Font-Size="Smaller" />
                         </div>
@@ -50,11 +52,11 @@
             </section>
         </div>
 
-        <div class="col-md-4">
+        <%--<div class="col-md-4">
             <section id="socialLoginForm">
                 <uc:openauthproviders runat="server" id="OpenAuthLogin" />
             </section>
-        </div>
+        </div>--%>
     </div>
 </asp:Content>
 

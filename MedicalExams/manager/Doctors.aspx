@@ -14,7 +14,7 @@
         <div style="margin:1em; margin-left:65ex">
             <asp:Label ID="labelInfo" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="Medium"></asp:Label>
         </div>
-        <div style="margin:1em;margin-left:70ex">
+        <div style="margin:1em; margin-left:70ex">
             <asp:Button ID="btClose" runat="server" Text="OK" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="Small" Font-Underline="False" OnClick="btClose_Click" />
         </div>
     </asp:Panel>
@@ -26,9 +26,9 @@
                 <table>
                     <tr>
                         <td style="width: 70px;"><b>Name</b></td>
-                                 <td style="width: 100px;">
-                                     <asp:TextBox ID="tbDoctorName" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
-                                 </td>
+                        <td style="width: 100px;">
+                            <asp:TextBox ID="tbDoctorName" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
+                        </td>
                     </tr>
                     <tr>
                         <td style="width: 70px"><b>Speciality</b></td>

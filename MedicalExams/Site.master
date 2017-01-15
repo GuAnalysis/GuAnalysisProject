@@ -58,7 +58,7 @@
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
-									<li class="current"><a href="Default.aspx">Main Page</a></li>
+									<li class="current"><a href="Default.aspx" style="background-color: #5D7B9D">Main Page</a></li>
                                     <asp:LoginView ID="LoginView1" runat="server">
                                         <AnonymousTemplate>
                                             <%--<li class="current">
@@ -70,7 +70,7 @@
                                                 </ul>
                                             </li>--%>
                                             <li class="current">
-                                                <a href="#" runat="server">Login</a>
+                                                <a href="#" runat="server" style="background-color: #5D7B9D">Login</a>
                                                 <ul>
                                                     <li><a runat="server" href="~/customer/EditPersonalData.aspx">Patient</a></li>
                                                     <li><a runat="server" href="~/doctor/EditPersonalData.aspx">Doctor</a></li>
@@ -78,7 +78,7 @@
                                                 </ul>
                                             </li>
                                             <li class="current">
-                                                <a href="#" runat="server">Register</a>
+                                                <a href="#" runat="server" style="background-color: #5D7B9D">Register</a>
                                                 <ul>
                                                     <li><a runat="server" href="~/Account/PatientRegister.aspx">Patient</a></li>
                                                     <li><a runat="server" href="~/Account/DoctorRegister.aspx">Doctor</a></li>
@@ -92,12 +92,13 @@
                                                 <asp:LoginName ID="LoginName1" runat="server" />
                                             </li>
                                             <li class="current">
-                                                <asp:LinkButton runat="server" Text="Logout" OnClick="Button1_Click"/></li>
+                                                <asp:LinkButton runat="server" style="background-color: #5D7B9D" Text="Logout" OnClick="Button1_Click"/></li>
 
                                         </LoggedInTemplate>
                                     </asp:LoginView>
-                                            <li class="current">
-									<a href="right-sidebar.html">About Us</a></li>
+                                    <li class="current">
+									<a href="right-sidebar.html" style="background-color: #5D7B9D">About Us</a>
+                                    </li>
 								</ul>
 							</nav>
 
@@ -118,7 +119,7 @@
 				<div id="footer-wrapper">
 					<footer id="footer" class="container" style="height:150px;" >
 						<div class="row">
-							<div class="3u 6u(small) 12u$(small)">
+							<%--<div class="3u 6u(small) 12u$(small)">
 
 								<!-- Links -->
 									<section class="widget links">
@@ -133,9 +134,70 @@
 										</ul>
 									</section>
 
-							</div>
+							</div>--%>
+
+                            <div style="color: #000000">
+                                <table>
+                                    <tr>
+                                        <td>Dr. Anna Mocko</td>
+                                    </tr>
+                                    <tr>
+                                        <td>anna.mocko@gmail.com</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" runat="server"><img src="Content/images/anna.jpg" alt="" /></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div style="color: #000000">
+                                <table>
+                                    <tr>
+                                        <td>Dr. Janilza Simao</td>
+                                    </tr>
+                                    <tr>
+                                        <td>janilza.simao@gmail.com</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" runat="server"><img src="Content/images/jani.jpg" alt="" /></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div style="color: #000000">
+                                <table>
+                                    <tr>
+                                        <td>Dr. Eda Solak</td>
+                                    </tr>
+                                    <tr>
+                                        <td>eda.solak@gmail.com</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" runat="server"><img src="Content/images/eda.jpg" alt="" /></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div style="color: #000000">
+                                <table>
+                                    <tr>
+                                        <td>Dr. Yavuz Ozdemir</td>
+                                    </tr>
+                                    <tr>
+                                        <td>yavuz.ozdemir@gmail.com</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" runat="server"><img src="Content/images/yavuz.jpg" alt="" /></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
 							
-							<div class="3u 6u$(medium) 12u$(small)">
+							<div class="3u 6u$(medium) 12u$(small)" style="float:right">
 
 								<!-- Contact -->
 									<section class="widget contact last">
@@ -144,11 +206,9 @@
 											<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 											<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 											<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-											<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-											<li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
 										</ul>
-										<p>2138 Rua Vasco Couceiro<br />
-										Guarda, PT 23-098<br />
+										<p style="color: #000000">Rua Vasco Couceiro 130<br />
+										Guarda, PT 2345-098<br />
 										910-999-901</p>
 									</section>
 

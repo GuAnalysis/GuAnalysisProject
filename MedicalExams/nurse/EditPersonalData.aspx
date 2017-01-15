@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="EditPersonalData.aspx.cs" Inherits="nurse_EditPersonalData" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="row" style="margin-left:21ex" >
+
+    <div class="row" style="margin-left:60ex" >
         <h2><%: Title %>Personal Data</h2>
         <br />
         <br />
@@ -16,7 +17,7 @@
                                 <td><b>Nurse Name:</b></td>
                                 <td>
                                  
-                                    <asp:TextBox ID="nurseNameTextBox" runat="server" Text='<%# Bind("Nurse_name") %>'  />
+                                    <asp:TextBox ID="nurseNameTextBox" runat="server" Text='<%# Bind("Nurse_name") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"  />
 
                                 </td>
                                 <td>
@@ -25,11 +26,25 @@
 
                                 </td>
                             </tr>
+<<<<<<< HEAD
+                             <tr>
+                                <td><b>User Name:</b></td>
+                                <td>
+                                    <asp:TextBox ID="TextBoxuserName" runat="server" Text='<%# Bind("username") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
+                                </td>
+                                <td>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="User Name is required." ControlToValidate="TextBoxuserName" Display="Dynamic" ToolTip="Name is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid name must be string" ValidationExpression="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" ControlToValidate="TextBoxuserName" Display="Dynamic">*</asp:RegularExpressionValidator>
+
+                                </td>
+                            </tr>
+=======
                             
+>>>>>>> origin/master
                               <tr>
                                 <td><b>Email:</b></td>
                                 <td>
-                                    <asp:TextBox ID="TextBoxEmail" runat="server" Text='<%# Bind("email") %>'  />
+                                    <asp:TextBox ID="TextBoxEmail" runat="server" Text='<%# Bind("email") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px" />
                                 </td>
                                 <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Email is required." ControlToValidate="TextBoxEmail" Display="Dynamic" ToolTip="Name is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
@@ -43,7 +58,7 @@
                                 <td><b>Address:</b></td>
                                 <td>
                                   
-                                    <asp:TextBox ID="TextBoxAddress" runat="server" Text='<%# Bind("Nurse_address") %>' />
+                                    <asp:TextBox ID="TextBoxAddress" runat="server" Text='<%# Bind("Nurse_address") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
 
                                 </td>
                        
@@ -55,7 +70,7 @@
                                 <td><b>Phone:</b></td>
                                 <td>
                                     
-                                    <asp:TextBox ID="TextBoxPhone" runat="server" Text='<%# Bind("Nurse_phone") %>'  />
+                                    <asp:TextBox ID="TextBoxPhone" runat="server" Text='<%# Bind("Nurse_phone") %>'  BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
 
                                 </td>
                        
@@ -69,7 +84,7 @@
                                 <td><b>Birthdate:</b></td>
                                 <td>
                                  
-                                    <asp:TextBox ID="TextBoxBirthDate" runat="server" Text='<%# Bind("Nurse_Bithdate") %>' />
+                                    <asp:TextBox ID="TextBoxBirthDate" runat="server" Text='<%# Bind("Nurse_Bithdate") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
 
                                 </td>
                                  <td>
@@ -82,7 +97,7 @@
                                 <td><b>Postal Code:</b></td>
                                 <td>
                                  
-                                    <asp:TextBox ID="TextBoxPostal_code" runat="server" Text='<%# Bind("Postal_Code") %>' />
+                                    <asp:TextBox ID="TextBoxPostal_code" runat="server" Text='<%# Bind("Postal_Code") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
 
                                 </td>
                                  <td>
@@ -107,7 +122,7 @@
                             <tr>
                                 <td><b>Nurse Name:</b></td>
                                 <td>
-                                    <asp:TextBox ID="nurseNameTextBox" runat="server" Text='<%# Bind("Nurse_name") %>' />
+                                    <asp:TextBox ID="nurseNameTextBox" runat="server" Text='<%# Bind("Nurse_name") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                                 </td>
                                <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" ErrorMessage="Name is required." ControlToValidate="nurseNameTextBox" Display="Dynamic" ToolTip="Name is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
@@ -118,7 +133,7 @@
                                <tr>
                                 <td><b>User Name:</b></td>
                                 <td>
-                                    <asp:TextBox ID="TextBoxuserName" runat="server" Text='<%# Bind("username") %>' />
+                                    <asp:TextBox ID="TextBoxuserName" runat="server" Text='<%# Bind("username") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                                 </td>
                                 <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="User Name is required." ControlToValidate="TextBoxuserName" Display="Dynamic" ToolTip="Name is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
@@ -129,7 +144,7 @@
                               <tr>
                                 <td><b>Email:</b></td>
                                 <td>
-                                    <asp:TextBox ID="TextBoxEmail" runat="server" Text='<%# Bind("email") %>' />
+                                    <asp:TextBox ID="TextBoxEmail" runat="server" Text='<%# Bind("email") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                                 </td>
                                 <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Email is required." ControlToValidate="TextBoxEmail" Display="Dynamic" ToolTip="Name is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
@@ -142,7 +157,7 @@
                                 <td><b>Nurse Address:</b></td>
                                 <td>
                                   
-                                    <asp:TextBox ID="TextBoxAddress" runat="server" Text='<%# Bind("Nurse_address") %>' />
+                                    <asp:TextBox ID="TextBoxAddress" runat="server" Text='<%# Bind("Nurse_address") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
 
                                 </td>
                        <td>
@@ -153,7 +168,7 @@
                                 <td><b>Nurse Phone:</b></td>
                                 <td>
                                
-                                    <asp:TextBox ID="TextBoxPhone" runat="server" Text='<%# Bind("Nurse_phone") %>' />
+                                    <asp:TextBox ID="TextBoxPhone" runat="server" Text='<%# Bind("Nurse_phone") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
 
                                 </td>
                        <td>
@@ -166,7 +181,7 @@
                                 <td><b>Nurse Birthdate:</b></td>
                                 <td>
                                
-                                    <asp:TextBox ID="TextBoxBirthDate" runat="server" Text='<%# Bind("Nurse_Bithdate", "{0:d}") %>' />
+                                    <asp:TextBox ID="TextBoxBirthDate" runat="server" Text='<%# Bind("Nurse_Bithdate", "{0:d}") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
 
                                 </td>
                                  <td>
@@ -178,7 +193,7 @@
                                 <td><b>Postal Code:</b></td>
                                 <td>
                                  
-                                    <asp:TextBox ID="TextBoxPostal_code" runat="server" Text='<%# Bind("Postal_Code") %>' />
+                                    <asp:TextBox ID="TextBoxPostal_code" runat="server" Text='<%# Bind("Postal_Code") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
 
                                 </td>
                                 <td>
