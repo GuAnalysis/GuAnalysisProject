@@ -146,7 +146,6 @@
                         <td>
                             <asp:Label ID="Postal_codeLabel" runat="server" Text='<%# Bind("Postal_code") %>' /></td>
                         <td>
-                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorPostalCode" runat="server" ErrorMessage="Invalid postal code must be (eg:1234-546)" ValidationExpression="[0-9]{4}-[0-9]{3}" ControlToValidate="Postal_codeLabel" Display="Dynamic">*</asp:RegularExpressionValidator>
 
                         </td>
                     </tr>

@@ -28,53 +28,72 @@
     </div>
 
     <div style="margin-left:21ex; width:800px">
-        <asp:GridView ID="gridviewPayments" runat="server" CellPadding="4" DataSourceID="SqlDataSourcePayments" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" Visible="False" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="Medium" OnSelectedIndexChanged="gridviewPayments_SelectedIndexChanged">
-            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+       
+   
+    
+   
+ 
+       
+
+        <asp:GridView ID="gridviewPayments" runat="server" AutoGenerateColumns="False" DataKeyNames="Exam_ID" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display.">
             <Columns>
-                <asp:CommandField ButtonType="Button" SelectText="&gt;" ShowSelectButton="True">
-                <ControlStyle BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Size="X-Small" Height="35px" Width="50px" />
-                <HeaderStyle Width="60px" />
-                </asp:CommandField>
-                <asp:BoundField DataField="Patient_ID" HeaderText="ID" SortExpression="Patient_ID" />
-                <asp:BoundField DataField="Exam_Name" HeaderText="Name" SortExpression="Exam_Name" />
-                <asp:BoundField DataField="Price" HeaderText="Price (€)" SortExpression="Price" />
-                <asp:BoundField DataField="Exam_date" HeaderText="Date" SortExpression="Exam_date" DataFormatString="{0:d}" >
-                <HeaderStyle Width="100px" />
-                </asp:BoundField>
+                 
+    
+                <asp:BoundField DataField="Exam_Name" HeaderText="Exam_Name" SortExpression="Exam_Name" />
+                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price"/>
+          <asp:templatefield HeaderText="Select">
+            <itemtemplate>
+                <asp:checkbox ID="chkStatus"
+               runat="server"></asp:checkbox>
+            </itemtemplate>
+        </asp:templatefield>
             </Columns>
-            <EditRowStyle BackColor="#999999" />
-            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#F7F6F3" ForeColor="#333333"/>
-            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-            <SortedAscendingCellStyle BackColor="#E9E7E2" />
-            <SortedAscendingHeaderStyle BackColor="#506C8C" />
-            <SortedDescendingCellStyle BackColor="#FFFDF8" />
-            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-
-
-
         </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>" DeleteCommand="DELETE FROM [Exam] WHERE [Exam_ID] = @Exam_ID" InsertCommand="INSERT INTO [Exam] ([ExamType_ID], [Exam_Name], [Price], [Fasting], [Smoke], [Alcoholic_Drinks], [Urgent], [Scheduler_ID], [Duration]) VALUES (@ExamType_ID, @Exam_Name, @Price, @Fasting, @Smoke, @Alcoholic_Drinks, @Urgent, @Scheduler_ID, @Duration)" ProviderName="<%$ ConnectionStrings:med_exConnectionString1.ProviderName %>" SelectCommand="SELECT [Exam_ID], [ExamType_ID], [Exam_Name], [Price], [Fasting], [Smoke], [Alcoholic_Drinks], [Urgent], [Scheduler_ID], [Duration] FROM [Exam]" UpdateCommand="UPDATE [Exam] SET [ExamType_ID] = @ExamType_ID, [Exam_Name] = @Exam_Name, [Price] = @Price, [Fasting] = @Fasting, [Smoke] = @Smoke, [Alcoholic_Drinks] = @Alcoholic_Drinks, [Urgent] = @Urgent, [Scheduler_ID] = @Scheduler_ID, [Duration] = @Duration WHERE [Exam_ID] = @Exam_ID">
+            <DeleteParameters>
+                <asp:Parameter Name="Exam_ID" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="ExamType_ID" Type="Int32" />
+                <asp:Parameter Name="Exam_Name" Type="String" />
+                <asp:Parameter Name="Price" Type="Decimal" />
+                <asp:Parameter Name="Fasting" Type="String" />
+                <asp:Parameter Name="Smoke" Type="Boolean" />
+                <asp:Parameter Name="Alcoholic_Drinks" Type="Boolean" />
+                <asp:Parameter Name="Urgent" Type="Boolean" />
+                <asp:Parameter Name="Scheduler_ID" Type="Int32" />
+                <asp:Parameter DbType="Time" Name="Duration" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="ExamType_ID" Type="Int32" />
+                <asp:Parameter Name="Exam_Name" Type="String" />
+                <asp:Parameter Name="Price" Type="Decimal" />
+                <asp:Parameter Name="Fasting" Type="String" />
+                <asp:Parameter Name="Smoke" Type="Boolean" />
+                <asp:Parameter Name="Alcoholic_Drinks" Type="Boolean" />
+                <asp:Parameter Name="Urgent" Type="Boolean" />
+                <asp:Parameter Name="Scheduler_ID" Type="Int32" />
+                <asp:Parameter DbType="Time" Name="Duration" />
+                <asp:Parameter Name="Exam_ID" Type="Int32" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
+
     </div>
 
     <div style="margin-left:21ex">
-        <asp:Button ID="btPay" runat="server" Text="PAY" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="Medium" Height="50px" Visible="False" Width="100px" />
     </div>
     </asp:Panel>
 
-    <asp:SqlDataSource ID="SqlDataSourcePayments" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>" 
-        SelectCommand="SELECT Scheduler.Patient_ID, Exam.Exam_Name, Exam.Price, Scheduler.Exam_date 
-                       FROM Exam INNER JOIN Scheduler ON Exam.Exam_ID = Scheduler.Exam_ID 
-                       WHERE (Scheduler.Patient_ID = @Patient_ID)">
-        <SelectParameters>
-            <asp:ControlParameter ControlID="LabelID" DefaultValue="%" Name="Patient_ID" PropertyName="Text" />
-        </SelectParameters>
-    </asp:SqlDataSource>
 
+        <asp:Button ID="btPay" runat="server" Text="PAY" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="Medium" Height="50px" Visible="True" Width="100px" OnClick="btPay_Click" />
+        <asp:Label ID="lblmsg" runat="server" />
 
     <br />
     <br />
+     
+
+    <asp:SqlDataSource ID="SqlDataSourcePayments" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>" DeleteCommand="DELETE FROM Exam" InsertCommand="INSERT INTO Exam(Exam_Name, Exam_ID, Price) VALUES (,,)" SelectCommand="SELECT Exam_Name, Price, ExamType_ID FROM Exam WHERE (Exam_Name LIKE '%' + Exam_Name + '%')"></asp:SqlDataSource>
     <br />
+
 </asp:Content>
 

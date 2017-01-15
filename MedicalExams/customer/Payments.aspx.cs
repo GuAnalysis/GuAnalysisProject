@@ -23,4 +23,30 @@ public partial class Payments : System.Web.UI.Page
             btPay.Enabled = false;
         }
     }
-}
+  
+    protected void btPay_Click(object sender, EventArgs e)
+    {
+        Int32 totalMVValue = 0;
+
+        // Iterate through the Products.Rows property
+        foreach (GridViewRow row in gridviewPayments.Rows)
+        {
+            // Access the CheckBox
+            CheckBox mvSelectorCheckBox = (CheckBox)row.FindControl("chkStatus");
+            if (mvSelectorCheckBox != null && mvSelectorCheckBox.Checked)
+            {
+                // First, get the primaryId for the selected row
+                int mvValue =
+                       Convert.ToDecimal(row.Cells[1]);
+                totalMVValue += mvValue;
+             
+            }
+
+        }
+        lblmsg.Text = Convert.ToString( totalMVValue);
+
+    }
+
+
+
+}    
