@@ -3,13 +3,14 @@
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="row" style="margin-left:21ex" >
+
+    <div class="row" style="margin-left:60ex" >
         <h2><%: Title %>Personal Data</h2>
         <br />
         <br />
         <br />
      
-        <asp:FormView ID="FormView1" runat="server" DataKeyNames="Doctor_ID" DataSourceID="SqlDataSourceDoctors">
+        <asp:FormView ID="FormView1" runat="server" style="margin-left:0ex" DataKeyNames="Doctor_ID" DataSourceID="SqlDataSourceDoctors">
             <EditItemTemplate>
                  <asp:ValidationSummary ID="ValidationSummaryDoctors" runat="server"/>
 
@@ -17,7 +18,7 @@
                 <tr>
                     <td><b>Name</b></td>
                     <td>
-                        <asp:TextBox ID="tbName" runat="server" Text='<%# Bind("Doctor_name") %>'></asp:TextBox>
+                        <asp:TextBox ID="tbName" runat="server" Text='<%# Bind("Doctor_name") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" ErrorMessage="Name is required" Display="Dynamic" ControlToValidate="tbName">*</asp:RequiredFieldValidator>
@@ -26,7 +27,7 @@
                 <tr>
                     <td><b>Speciality</b></td>
                     <td>
-                        <asp:DropDownList ID="ddlSpeciality" runat="server" DataSourceID="SqlDataSourceSpeciality" DataTextField="Speciality" DataValueField="Speciality" SelectedValue='<%# Bind("Speciality") %>'></asp:DropDownList> 
+                        <asp:DropDownList ID="ddlSpeciality" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px" DataSourceID="SqlDataSourceSpeciality" DataTextField="Speciality" DataValueField="Speciality" SelectedValue='<%# Bind("Speciality") %>'></asp:DropDownList> 
                                                         <asp:SqlDataSource ID="SqlDataSourceSpeciality" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>" SelectCommand="SELECT [Speciality] FROM [Doctor]"></asp:SqlDataSource>
 
                     </td>
@@ -34,7 +35,7 @@
                 <tr>
                     <td><b>Phone</b></td>
                     <td>
-                        <asp:TextBox ID="tbPhone" runat="server" Text='<%# Bind("Doctor_phone") %>'></asp:TextBox>
+                        <asp:TextBox ID="tbPhone" runat="server" Text='<%# Bind("Doctor_phone") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
                         <asp:CompareValidator ID="CompareValidatorPhone" runat="server" ErrorMessage="Phone number cannot be consisted of letters!" Operator="DataTypeCheck" SetFocusOnError="True" ToolTip="Phone number cannot be consisted of letters!" Type="Double" ControlToValidate="tbPhone" Display="Dynamic"></asp:CompareValidator>
 
                     </td>
@@ -42,7 +43,7 @@
                 <tr>
                     <td><b>E-mail</b></td>
                     <td>
-                        <asp:TextBox ID="tbEmail" runat="server" Text='<%# Bind("Doctor_mail") %>'></asp:TextBox>
+                        <asp:TextBox ID="tbEmail" runat="server" Text='<%# Bind("Doctor_mail") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Invalid e-mail" ClientIDMode="Inherit" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="tbEmail"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
@@ -61,7 +62,7 @@
                 <tr>
                     <td><b>Name</b></td>
                     <td>
-                        <asp:TextBox ID="tbName" runat="server" Text='<%# Bind("Doctor_name") %>'></asp:TextBox>
+                        <asp:TextBox ID="tbName" runat="server" Text='<%# Bind("Doctor_name") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" ErrorMessage="Name is required" Display="Dynamic" ControlToValidate="tbName">*</asp:RequiredFieldValidator>
@@ -70,13 +71,13 @@
                 <tr>
                     <td><b>Speciality</b></td>
                     <td>
-                        <asp:DropDownList ID="ddlSpeciality" runat="server" DataSourceID="SqlDataSourceSpeciality" DataTextField="Speciality" DataValueField="Speciality" SelectedValue='<%# Bind("Speciality") %>'></asp:DropDownList> 
+                        <asp:DropDownList ID="ddlSpeciality" runat="server" DataSourceID="SqlDataSourceSpeciality" DataTextField="Speciality" DataValueField="Speciality" SelectedValue='<%# Bind("Speciality") %>' Height="35px"></asp:DropDownList> 
                     </td>
                 </tr>
                 <tr>
                     <td><b>Phone</b></td>
                     <td>
-                        <asp:TextBox ID="tbPhone" runat="server" Text='<%# Bind("Doctor_phone") %>'></asp:TextBox>
+                        <asp:TextBox ID="tbPhone" runat="server" Text='<%# Bind("Doctor_phone") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorPhone" runat="server" ErrorMessage="Phone number is required" Display="Dynamic" ControlToValidate="tbPhone">*</asp:RequiredFieldValidator>
@@ -86,7 +87,7 @@
                 <tr>
                     <td><b>E-mail</b></td>
                     <td>
-                        <asp:TextBox ID="tbEmail" runat="server" Text='<%# Bind("Doctor_mail") %>'></asp:TextBox>
+                        <asp:TextBox ID="tbEmail" runat="server" Text='<%# Bind("Doctor_mail") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorEmail" runat="server" ErrorMessage="E-mail is required" Display="Dynamic" ControlToValidate="tbEmail">*</asp:RequiredFieldValidator>
@@ -96,7 +97,7 @@
                 <tr>
                                 <td><b>User Name:</b></td>
                                 <td>
-                                    <asp:TextBox ID="TextBoxuserName" runat="server" Text='<%# Bind("username") %>' />
+                                    <asp:TextBox ID="TextBoxuserName" runat="server" Text='<%# Bind("username") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px" />
                                 </td>
                                 <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="User Name is required." ControlToValidate="TextBoxuserName" Display="Dynamic" ToolTip="Name is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
@@ -157,7 +158,7 @@
                     </tr>
 
                 </table>
-                <asp:Button ID="ButtonExam" runat="server" Text="Schedule Exam" BackColor="#5D7B9D" Font-Size="Smaller" Font-Underline="False" Visible="True" Width="10em" OnClick="ButtonExam_Click" />
+                <asp:Button ID="ButtonExam" runat="server" Text="Schedule Exam" BackColor="#5D7B9D" Font-Size="Smaller" Font-Underline="False" Visible="True" Width="10em" OnClick="ButtonExam_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px" />
             </ItemTemplate>
         </asp:FormView>
     </div>
