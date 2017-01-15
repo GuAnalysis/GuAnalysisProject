@@ -32,8 +32,12 @@ public partial class Scheduler : System.Web.UI.Page
 
     protected void CalendarExamDate_SelectionChanged(object sender, EventArgs e)
     {
+
         DateLabel.Text = CalendarExamDate.SelectedDate.ToString("dd/MM/yyyy");
+
         CalendarExamDate.Visible = true;
+        GridViewScheduler.DataBind();
+
 
     }
 
@@ -45,7 +49,7 @@ public partial class Scheduler : System.Web.UI.Page
     protected void btNew_Click(object sender, EventArgs e)
     {
         FormViewScheduler.ChangeMode(FormViewMode.Insert);
-        GridViewScheduler.Visible = false;
+        GridViewScheduler.Visible = true;
     }
 
     protected void btEdit_Click(object sender, EventArgs e)
@@ -74,4 +78,31 @@ public partial class Scheduler : System.Web.UI.Page
         FormViewScheduler.DeleteItem();
         GridViewScheduler.DataBind();
     }
+
+    protected void ddlAddExam_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GridViewScheduler.DataBind();
+    }
+
+    protected void ddlAddPatient_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GridViewScheduler.DataBind();
+    }
+
+    protected void ddlAddNurse_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GridViewScheduler.DataBind();
+    }
+
+    protected void ddlAddDoctor_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GridViewScheduler.DataBind();
+    }
+
+    protected void ddExamHour_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GridViewScheduler.DataBind();
+    }
+
+   
 }
