@@ -26,6 +26,7 @@
 
                                 </td>
                             </tr>
+<<<<<<< HEAD
                              <tr>
                                 <td><b>User Name:</b></td>
                                 <td>
@@ -37,6 +38,9 @@
 
                                 </td>
                             </tr>
+=======
+                            
+>>>>>>> origin/master
                               <tr>
                                 <td><b>Email:</b></td>
                                 <td>
