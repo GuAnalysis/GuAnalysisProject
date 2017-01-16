@@ -3,15 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
         <center>
-<<<<<<< HEAD
-            <header id="hTypeOfExams" class="alt">
-                <h2><%: Title %>Exams</h2>
-            </header>
-=======
         <header id="hExam" class="alt">
             <h2><%: Title %>Exam Panel</h2>
         </header>
->>>>>>> origin/master
         </center>
 
         <br />
