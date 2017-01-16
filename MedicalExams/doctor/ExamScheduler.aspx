@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Scheduler" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ExamScheduler.aspx.cs" Inherits="Scheduler" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ExamScheduler.aspx.cs" Inherits="Scheduler" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div style="margin-left: auto; margin-right: auto; width: 1000px">
@@ -9,7 +9,12 @@
                 <br />
                 <br />
                 <asp:Panel ID="ScheduledExamsPanel" runat="server" Visible="true">
-                    <center> <strong>Scheduled Exams</strong></center>
+                  <center>
+                    <header id="hScheduler" class="alt">
+                    <h2><%: Title %>Exam Scheduler</h2>
+                    </header>
+                  </center>
+                     <%-- <center> <strong>Scheduled Exams</strong></center>--%>
                     <br />
                     <br />
                     <br />
@@ -71,10 +76,10 @@
                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                     </asp:GridView>
-                    
+                     <asp:Button ID="btSendEmail" runat="server" Text="Send Email" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btSendEmail_Click"/>
                      <asp:Button ID="btNew" runat="server" Text="New" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btNew_Click" />
                      <asp:Button ID="btEdit" runat="server" Text="Edit" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btEdit_Click" />
-                     <asp:Button ID="btDelete" runat="server" Text="Delete" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btDelete_Click"/>
+                     <asp:Button ID="btDelete" runat="server" Text="Delete" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btDelete_Click" Enabled="False"/>
                      <asp:Button ID="btSearch" runat="server" Text="Search" BackColor="#5D7B9D" Font-Size="Smaller"/>
                   
                    </center>
@@ -108,7 +113,7 @@
                     <br />
                     <br />
                     <br />
-                    <%-- <center>--%>
+                    <center>
                      <asp:FormView ID="FormViewScheduler" runat="server"
                          DataKeyNames="Scheduler_ID" DataSourceID="SqlDataSourceScheduler" 
                          OnItemDeleted="FormViewScheduler_ItemDeleted" 
@@ -175,7 +180,7 @@
                                 DataSourceID="SqlDataSourceExams"
                                 DataTextField="Exam_Name" 
                                 DataValueField="Exam_ID"
-                                AppendDataBoundItems="True" OnSelectedIndexChanged="ddlAddExam_SelectedIndexChanged"> 
+                                AppendDataBoundItems="True" OnSelectedIndexChanged="ddlAddExam_SelectedIndexChanged" SelectedValue='<%# Bind("Exam_ID") %>'> 
              
                                 <asp:ListItem Value="%">Choose the Exam</asp:ListItem>
                             </asp:DropDownList>
@@ -214,7 +219,7 @@
                                 DataSourceID="SqlDataSourcePatient" 
                                 DataTextField="Health_number" 
                                 DataValueField="Patient_ID"
-                                AppendDataBoundItems="True" OnSelectedIndexChanged="ddlAddPatient_SelectedIndexChanged"> 
+                                AppendDataBoundItems="True" OnSelectedIndexChanged="ddlAddPatient_SelectedIndexChanged" SelectedValue='<%# Bind("Patient_ID") %>'> 
                                 <asp:ListItem Value="%">Choose the Patient</asp:ListItem>
                             </asp:DropDownList>
                             <asp:SqlDataSource ID="SqlDataSourcePatient" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>" 
@@ -259,7 +264,7 @@
                         <td>
                             <asp:TextBox ID="DateTextBox" runat="server" Text="Exam Date"></asp:TextBox>
                             <asp:Label ID="DateLabel" runat="server" Visible="true"></asp:Label> 
-                            <asp:Calendar ID="CalendarExamDate" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003366" Height="200px" Width="220px" CellPadding="1" Visible ="true" OnSelectionChanged="CalendarExamDate_SelectionChanged">
+                            <asp:Calendar ID="CalendarExamDate" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003366" Height="200px" Width="220px" CellPadding="1" OnSelectionChanged="CalendarExamDate_SelectionChanged" SelectedDate='<%# Bind("Exam_date") %>'>
                                     <DayHeaderStyle BackColor="#99CCCC" Height="1px" ForeColor="#336666" />
                                     <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
                                     <OtherMonthDayStyle ForeColor="#999999" />
@@ -279,7 +284,7 @@
                                 DataSourceID="SqlDataSourceNurse" 
                                 DataTextField="Nurse_ID" 
                                 DataValueField="Nurse_ID"
-                                AppendDataBoundItems="True" OnSelectedIndexChanged="ddlAddNurse_SelectedIndexChanged"> 
+                                AppendDataBoundItems="True" OnSelectedIndexChanged="ddlAddNurse_SelectedIndexChanged" SelectedValue='<%# Bind("Nurse_ID") %>'> 
                                 <asp:ListItem Value="%">Choose the Nurse</asp:ListItem>
                             </asp:DropDownList>
                              <asp:SqlDataSource ID="SqlDataSourceNurse" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>" DeleteCommand="DELETE FROM [Nurse] WHERE [Nurse_ID] = @Nurse_ID" InsertCommand="INSERT INTO [Nurse] ([Nurse_name], [Nurse_address], [Nurse_phone], [Nurse_Bithdate], [Postal_Code], [username], [email], [Patient_ID], [Exam_ID]) VALUES (@Nurse_name, @Nurse_address, @Nurse_phone, @Nurse_Bithdate, @Postal_Code, @username, @email, @Patient_ID, @Exam_ID)" ProviderName="<%$ ConnectionStrings:med_exConnectionString1.ProviderName %>" SelectCommand="SELECT [Nurse_ID], [Nurse_name], [Nurse_address], [Nurse_phone], [Nurse_Bithdate], [Postal_Code], [username], [email], [Patient_ID], [Exam_ID] FROM [Nurse]" UpdateCommand="UPDATE [Nurse] SET [Nurse_name] = @Nurse_name, [Nurse_address] = @Nurse_address, [Nurse_phone] = @Nurse_phone, [Nurse_Bithdate] = @Nurse_Bithdate, [Postal_Code] = @Postal_Code, [username] = @username, [email] = @email, [Patient_ID] = @Patient_ID, [Exam_ID] = @Exam_ID WHERE [Nurse_ID] = @Nurse_ID">
@@ -315,7 +320,7 @@
                                 DataSourceID="SqlDataSourceDoctor" 
                                 DataTextField="Doctor_ID" 
                                 DataValueField="Doctor_ID"
-                                AppendDataBoundItems="True" OnSelectedIndexChanged="ddlAddDoctor_SelectedIndexChanged"> 
+                                AppendDataBoundItems="True" OnSelectedIndexChanged="ddlAddDoctor_SelectedIndexChanged" SelectedValue='<%# Bind("Doctor_ID") %>'> 
                                 <asp:ListItem Value="%">Choose the Doctor</asp:ListItem>
                             </asp:DropDownList>
                              <asp:SqlDataSource ID="SqlDataSourceDoctor" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>" DeleteCommand="DELETE FROM [Doctor] WHERE [Doctor_ID] = @Doctor_ID" InsertCommand="INSERT INTO [Doctor] ([Doctor_name], [Speciality], [Patient_ID], [Doctor_phone], [username], [Doctor_mail], [Exam_ID]) VALUES (@Doctor_name, @Speciality, @Patient_ID, @Doctor_phone, @username, @Doctor_mail, @Exam_ID)" ProviderName="<%$ ConnectionStrings:med_exConnectionString1.ProviderName %>" SelectCommand="SELECT [Doctor_ID], [Doctor_name], [Speciality], [Patient_ID], [Doctor_phone], [username], [Doctor_mail], [Exam_ID] FROM [Doctor]" UpdateCommand="UPDATE [Doctor] SET [Doctor_name] = @Doctor_name, [Speciality] = @Speciality, [Patient_ID] = @Patient_ID, [Doctor_phone] = @Doctor_phone, [username] = @username, [Doctor_mail] = @Doctor_mail, [Exam_ID] = @Exam_ID WHERE [Doctor_ID] = @Doctor_ID">
@@ -370,10 +375,12 @@
                     </tr>
          
                  </table>
-                         
-                          <asp:Button ID="btSave" runat="server" Text="Save" CommandName="Update" BackColor="#6D8AAA" Font-Size="Smaller" />
+                         <center>
+
+                          <asp:Button ID="btSave" runat="server" Text="Save" CommandName="Update" BackColor="#6D8AAA" Font-Size="Smaller" OnClick="btSave_Click" />
                           <asp:Button ID="btCancel" runat="server" Text="Cancel" CommandName="Cancel" BackColor="#6D8AAA" Font-Size="Smaller" />
-                        </EditItemTemplate>
+                         </center>
+                             </EditItemTemplate>
                         <InsertItemTemplate>
 
                             <table>
@@ -584,18 +591,22 @@
                     </tr>
          
                  </table>
-                           
+                           <center>
+
+                         
                            <asp:Button ID="btSave" runat="server" Text="Save" CommandName="Insert" BackColor="#6D8AAA" Font-Size="Smaller"/>
                            <asp:Button ID="btCancel" runat="server" Text="Cancel" CommandName="Cancel" BackColor="#6D8AAA" Font-Size="Smaller" CausesValidation="False" />
-                        </InsertItemTemplate>
+                           
+                           </center>
+                           </InsertItemTemplate>
                 </asp:FormView>
-                    <%--  </center>--%>
+                </center>
                 </asp:Panel>
                 <asp:SqlDataSource ID="SqlDataSourceScheduler" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>" 
                     SelectCommand="SELECT Scheduler_ID, Patient_ID, Doctor_ID, Nurse_ID, Exam_ID, Exam_date, Performed FROM Scheduler WHERE (Scheduler_ID = @Scheduler_ID)" 
                     DeleteCommand="DELETE FROM Scheduler WHERE (Exam_ID = @Exam_ID)" 
-                    InsertCommand="INSERT INTO Scheduler(Patient_ID, Doctor_ID, Nurse_ID, Exam_ID, Exam_date, Performed) VALUES (@Patient_ID, @Doctor_ID, @Nurse_ID, @Exam_ID, @Exam_date, @Performed)" 
-                    UpdateCommand="UPDATE Scheduler SET Patient_ID = @Patient_ID, Doctor_ID = @Doctor_ID, Nurse_ID = @Nurse_ID, Exam_ID = @Exam_ID, Exam_date = @Exam_date, Performed = @Performed">
+                    InsertCommand="INSERT INTO Scheduler (Patient_ID, Doctor_ID, Nurse_ID, Exam_ID, Exam_date, Performed) VALUES (@Patient_ID,@Doctor_ID,@Nurse_ID,@Exam_ID,@Exam_date,@Performed)" 
+                    UpdateCommand="UPDATE Scheduler SET Patient_ID = @Patient_ID, Doctor_ID = @Doctor_ID, Nurse_ID = @Nurse_ID, Exam_ID = @Exam_ID, Exam_date = @Exam_date, Performed = @Performed WHERE (Scheduler_ID = @Scheduler_ID)">
                     <DeleteParameters>
                         <asp:Parameter Name="Exam_ID" />
                     </DeleteParameters>
@@ -606,6 +617,7 @@
                         <asp:Parameter Name="Exam_ID" />
                         <asp:Parameter Name="Exam_date" />
                         <asp:Parameter Name="Performed" />
+                        <asp:Parameter Name="Scheduler_ID" />
                     </InsertParameters>
                     <SelectParameters>
                         <asp:ControlParameter ControlID="GridViewScheduler" Name="Scheduler_ID" PropertyName="SelectedValue" />
@@ -617,6 +629,7 @@
                         <asp:Parameter Name="Exam_ID" />
                         <asp:Parameter Name="Exam_date" />
                         <asp:Parameter Name="Performed" />
+                        <asp:Parameter Name="Scheduler_ID" />
                     </UpdateParameters>
             </asp:SqlDataSource>  
       

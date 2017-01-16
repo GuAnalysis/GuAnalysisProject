@@ -3,9 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
         <center>
-        <header id="hExam" class="alt">
-            <h1><b><%: Title %>Exam Panel</b></h1>
-        </header>
+            <header id="hTypeOfExams" class="alt">
+                <h2><%: Title %>Exams</h2>
+            </header>
         </center>
 
         <br />
@@ -346,7 +346,7 @@
         SelectCommand="SELECT Exam.Exam_ID, Exam.ExamType_ID, Exam.Exam_Name, Exam.Price, Exam.Fasting, Exam.Smoke, Exam.Alcoholic_Drinks, ExamType.Exam_type, Exam.Urgent, Exam.Duration FROM Exam INNER JOIN ExamType ON Exam.ExamType_ID = ExamType.ExamType_ID WHERE (Exam.Exam_ID = @Exam_ID)" 
         DeleteCommand="DELETE FROM [Exam] WHERE [Exam_ID] = @Exam_ID" 
         InsertCommand="INSERT INTO Exam(Exam_Name, ExamType_ID, Price, Fasting, Smoke, Alcoholic_Drinks, Urgent, Duration) VALUES (@Exam_Name, @ExamType_ID, @Price, @Fasting, @Smoke, @Alcoholic_Drinks, @Urgent, @Duration)" 
-        UpdateCommand="UPDATE Exam SET Exam_Name = @Exam_Name, ExamType_ID = @ExamType_ID, Price = @Price, Fasting = @Fasting, Smoke = @Smoke, Alcoholic_Drinks = @Alcoholic_Drinks, Urgent =, Duration = WHERE (Exam_ID = @Exam_ID)">
+        UpdateCommand="UPDATE Exam SET Exam_Name = @Exam_Name, ExamType_ID = @ExamType_ID, Price = @Price, Fasting = @Fasting, Smoke = @Smoke, Alcoholic_Drinks = @Alcoholic_Drinks, Urgent =@Urgent, Duration = @Duration WHERE (Exam_ID = @Exam_ID)">
         <DeleteParameters>
             <asp:Parameter Name="Exam_ID" />
         </DeleteParameters>
