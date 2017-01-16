@@ -16,7 +16,7 @@
             </div>
 
             <div style="margin-bottom: 1ex; margin-left:70ex">
-                <asp:Button ID="btClose" runat="server" Text="Close" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btClose_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" />
+                <asp:Button ID="btClose" runat="server" Text="Close" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btClose_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: -2px; top: 0px" />
             </div>
         </asp:Panel>
 
@@ -49,9 +49,9 @@
                     </table>
 
                     <center>
-                    <asp:Button ID="btPerformSearch" runat="server" Text="Search" BackColor="#5D7B9D" Font-Size="Smaller" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px"/>
-                    <asp:Button ID="btCloseSearch" runat="server" Text="Search and close" BackColor="#5D7B9D" Font-Size="Smaller" Width="139px" OnClick="btCloseSearch_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px"/>
-                    <asp:Button ID="btClearSearch" runat="server" Text="Clear search" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btClearSearch_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px"/>
+                    <asp:Button ID="btPerformSearch" runat="server" Text="Search" BackColor="#5D7B9D" Font-Size="Smaller" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: -1px; top: 0px"/>
+                    <asp:Button ID="btCloseSearch" runat="server" Text="Search and close" BackColor="#5D7B9D" Font-Size="Smaller" Width="139px" OnClick="btCloseSearch_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: 4px; top: -1px; margin-top: 0"/>
+                    <asp:Button ID="btClearSearch" runat="server" Text="Clear search" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btClearSearch_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: 6px; top: -1px"/>
                     </center>
 
                 </asp:Panel>
@@ -91,10 +91,10 @@
             </asp:GridView>
 
             <center>
-            <asp:Button ID="btNew" runat="server" Text="New" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btNew_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px"/>
-            <asp:Button ID="btEdit" runat="server" Text="Edit" Enabled="False" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btEdit_Click1" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px"/>
-            <asp:Button ID="btDelete" runat="server" Text="Delete" Enabled="False" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btDelete_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px"/>
-            <asp:Button ID="btSearch" runat="server" Text="Search" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btSearch_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px"/>
+            <asp:Button ID="btNew" runat="server" Text="New" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btNew_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: -1px; top: 5px"/>
+            <asp:Button ID="btEdit" runat="server" Text="Edit" Enabled="False" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btEdit_Click1" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: 3px; top: 4px"/>
+            <asp:Button ID="btDelete" runat="server" Text="Delete" Enabled="False" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btDelete_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: 6px; top: 5px"/>
+            <asp:Button ID="btSearch" runat="server" Text="Search" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btSearch_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: 8px; top: 6px"/>
             </center>
 
             <br />
@@ -118,8 +118,8 @@
                 <b>Are you sure you want to delete the exam?</b>
             </center>
             <div style="margin: 1em; margin-left:67ex;">
-                <asp:Button ID="btConfirmDelete" runat="server" Text="Yes, delete" BackColor="#5D7B9D" Font-Size="Smaller" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" OnClick="btConfirmDelete_Click" />
-                <asp:Button ID="btCanceldelete" runat="server" Text="No, cancel!" BackColor="#5D7B9D" Font-Size="Smaller" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" OnClick="btCanceldelete_Click" />
+                <asp:Button ID="btConfirmDelete" runat="server" Text="Yes, delete" BackColor="#5D7B9D" Font-Size="Smaller" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" OnClick="btConfirmDelete_Click" style="left: -1px; top: -1px" />
+                <asp:Button ID="btCanceldelete" runat="server" Text="No, cancel!" BackColor="#5D7B9D" Font-Size="Smaller" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" OnClick="btCanceldelete_Click" style="left: 1px; top: -2px" />
             </div>
 
         </asp:Panel>
