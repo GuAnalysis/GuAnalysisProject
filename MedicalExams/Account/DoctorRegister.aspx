@@ -81,8 +81,8 @@
         </table>
 
         <div style="margin-left:15ex">
-        <asp:Button ID="btRegister" runat="server" style="text-align-last:center; margin:auto" Text="Register" OnClick="btRegister_Click" BackColor="#5D7B9D" Font-Size="Smaller" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" />
-        <asp:Button ID="btCancel" runat="server" style="text-align-last:center; margin:auto" Text="Cancel" CausesValidation="False" OnClick="btCancel_Click" Font-Size="Smaller" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" />
+        <asp:Button ID="btRegister" runat="server" style="text-align-last:center; margin:auto; left: 1px; top: 2px;" Text="Register" OnClick="btRegister_Click" BackColor="#5D7B9D" Font-Size="Smaller" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" />
+        <asp:Button ID="btCancel" runat="server" style="text-align-last:center; margin:auto; left: 6px; top: 2px;" Text="Cancel" CausesValidation="False" OnClick="btCancel_Click" Font-Size="Smaller" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" />
         </div>
    </div>
     

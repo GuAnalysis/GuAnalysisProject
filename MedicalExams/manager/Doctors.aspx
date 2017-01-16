@@ -15,7 +15,7 @@
             <asp:Label ID="labelInfo" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="Medium"></asp:Label>
         </div>
         <div style="margin:1em; margin-left:70ex">
-            <asp:Button ID="btClose" runat="server" Text="OK" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="Small" Font-Underline="False" OnClick="btClose_Click" />
+            <asp:Button ID="btClose" runat="server" Text="OK" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="Small" Font-Underline="False" OnClick="btClose_Click" style="left: -3px; top: 2px" />
         </div>
     </asp:Panel>
 
@@ -40,11 +40,11 @@
                         </td>
                     </tr>
                 </table>
-                <table>
+                <table style="position: absolute">
                     <tr>
-                        <td><asp:Button ID="btPerformSearch" runat="server" Text="Search" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" Font-Names="Arial" Font-Size="Small" Font-Strikeout="False" Height="40px" BorderWidth="1px" /></td><td>&nbsp;</td>
-                        <td><asp:Button ID="btCloseSearch" runat="server" Text="Search and close" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" Font-Names="Arial" Font-Size="Small" Font-Strikeout="False" Height="40px" BorderWidth="1px" style="left: 20px; top: -1px; width: 155px;" OnClick="btCloseSearch_Click" /></td><td>&nbsp;</td>
-                        <td><asp:Button ID="btClearSearch" runat="server" Text="Clear search" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" Font-Names="Arial" Font-Size="Small" Font-Strikeout="False" Height="40px" style="left: 28px; top: 0px; width: 122px;" BorderWidth="1px" OnClick="btClearSearch_Click" /></td>
+                        <td><asp:Button ID="btPerformSearch" runat="server" Text="Search" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" Font-Names="Arial" Font-Size="Small" Font-Strikeout="False" Height="40px" BorderWidth="1px" style="left: -1px; top: 1px" /></td>
+                        <td><asp:Button ID="btCloseSearch" runat="server" Text="Search and close" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" Font-Names="Arial" Font-Size="Small" Font-Strikeout="False" Height="40px" BorderWidth="1px" OnClick="btCloseSearch_Click" style="left: 0px; top: 1px" /></td>
+                        <td><asp:Button ID="btClearSearch" runat="server" Text="Clear search" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" Font-Names="Arial" Font-Size="Small" Font-Strikeout="False" Height="40px" BorderWidth="1px" OnClick="btClearSearch_Click" style="left: 1px; top: 2px" /></td>
                     </tr>
                 </table>
                 
@@ -104,8 +104,8 @@
             <b>Are you sure you want to remove this Doctor?</b>
             </center>
         <div style="margin: 1em; margin-left:67ex;">
-            <asp:Button ID="btConfirmRemove" runat="server" Text="Yes, remove." BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="Small" OnClick="btConfirmRemove_Click" />
-            <asp:Button ID="btCancelRemove" runat="server" Text="No, cancel." BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="Small" OnClick="btCancelRemove_Click" />
+            <asp:Button ID="btConfirmRemove" runat="server" Text="Yes, remove." BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="Small" OnClick="btConfirmRemove_Click" style="left: -2px; top: 0px" />
+            <asp:Button ID="btCancelRemove" runat="server" Text="No, cancel." BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="Small" OnClick="btCancelRemove_Click" style="left: 2px; top: -1px" />
         </div>
     </asp:Panel>
 
