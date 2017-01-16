@@ -25,13 +25,13 @@
             <asp:Panel ID="panelSearch" runat="server" Height="150px" Width="300px" Visible="False">
                 <table>
                     <tr>
-                        <td style="width: 70px;"><b>Name</b></td>
+                        <td style="width: 70px;"><b>Name:</b></td>
                         <td style="width: 100px;">
                             <asp:TextBox ID="tbDoctorName" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td style="width: 70px"><b>Speciality</b></td>
+                        <td style="width: 70px"><b>Speciality:</b></td>
                             <td style="width: 100px;">
                                 <asp:DropDownList ID="ddlSpeciality" runat="server" AppendDataBoundItems="True" DataSourceID="SqlDataSourceSpeciality" DataTextField="Speciality" DataValueField="Speciality" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px" Font-Names="Arial" Font-Size="Medium" >
                                     <asp:ListItem Value="%">Show All</asp:ListItem>
@@ -40,11 +40,11 @@
                         </td>
                     </tr>
                 </table>
-                <table style="position: absolute">
+                <table>
                     <tr>
-                        <td><asp:Button ID="btPerformSearch" runat="server" Text="Search" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" Font-Names="Arial" Font-Size="Small" Font-Strikeout="False" Height="40px" BorderWidth="1px" style="left: -1px; top: 1px" /></td>
-                        <td><asp:Button ID="btCloseSearch" runat="server" Text="Search and close" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" Font-Names="Arial" Font-Size="Small" Font-Strikeout="False" Height="40px" BorderWidth="1px" OnClick="btCloseSearch_Click" style="left: 0px; top: 1px" /></td>
-                        <td><asp:Button ID="btClearSearch" runat="server" Text="Clear search" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" Font-Names="Arial" Font-Size="Small" Font-Strikeout="False" Height="40px" BorderWidth="1px" OnClick="btClearSearch_Click" style="left: 1px; top: 2px" /></td>
+                        <td><asp:Button ID="btPerformSearch" runat="server" Text="Search" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" Font-Names="Arial" Font-Size="Small" Font-Strikeout="False" Height="40px" BorderWidth="1px"/></td>
+                        <td><asp:Button ID="btCloseSearch" runat="server" Text="Search and close" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" Font-Names="Arial" Font-Size="Small" Font-Strikeout="False" Height="40px" Width="170px" BorderWidth="1px" OnClick="btCloseSearch_Click"/></td>
+                        <td><asp:Button ID="btClearSearch" runat="server" Text="Clear search" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" Font-Names="Arial" Font-Size="Small" Font-Strikeout="False" Height="40px" BorderWidth="1px" OnClick="btClearSearch_Click"/></td>
                     </tr>
                 </table>
                 
@@ -55,7 +55,7 @@
         <br />
 
         <div style="margin-left:40ex; margin-right:auto; width:900px">
-        <asp:GridView ID="gridviewDoctors" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Doctor_ID" DataSourceID="SqlDataSourceGridDoctors" ForeColor="#333333" GridLines="None" AllowSorting="True" OnSelectedIndexChanged="gridviewDoctors_SelectedIndexChanged">
+        <asp:GridView ID="gridviewDoctors" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Doctor_ID" DataSourceID="SqlDataSourceGridDoctors" ForeColor="#333333" GridLines="None" AllowSorting="True" OnSelectedIndexChanged="gridviewDoctors_SelectedIndexChanged" style="margin-right: 0">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:CommandField ButtonType="Button" SelectText="&gt;" ShowSelectButton="True">
@@ -118,7 +118,7 @@
 
             <table>
                 <tr>
-                    <td><b>Name</b></td>
+                    <td><b>Name:</b></td>
                     <td>
                         <asp:TextBox ID="tbName" runat="server" Text='<%# Bind("Doctor_name") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
                     </td>
@@ -127,13 +127,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><b>Speciality</b></td>
+                    <td><b>Speciality:</b></td>
                     <td>
                         <asp:DropDownList ID="ddlSpeciality" runat="server" DataSourceID="SqlDataSourceSpeciality" DataTextField="Speciality" DataValueField="Speciality" SelectedValue='<%# Bind("Speciality") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:DropDownList> 
                     </td>
                 </tr>
                 <tr>
-                    <td><b>Phone</b></td>
+                    <td><b>Phone:</b></td>
                     <td>
                         <asp:TextBox ID="tbPhone" runat="server" Text='<%# Bind("Doctor_phone") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
                         <asp:CompareValidator ID="CompareValidatorPhone" runat="server" ErrorMessage="Phone number cannot be consisted of letters!" Operator="DataTypeCheck" SetFocusOnError="True" ToolTip="Phone number cannot be consisted of letters!" Type="Double" ControlToValidate="tbPhone" Display="Dynamic"></asp:CompareValidator>
@@ -141,7 +141,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><b>E-mail</b></td>
+                    <td><b>E-mail:</b></td>
                     <td>
                         <asp:TextBox ID="tbEmail" runat="server" Text='<%# Bind("Doctor_mail") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Invalid e-mail" ClientIDMode="Inherit" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="tbEmail"></asp:RegularExpressionValidator>
@@ -168,7 +168,7 @@
 
             <table>
                 <tr>
-                    <td><b>Name</b></td>
+                    <td><b>Name:</b></td>
                     <td>
                         <asp:TextBox ID="tbName" runat="server" Text='<%# Bind("Doctor_name") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
                     </td>
@@ -177,13 +177,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><b>Speciality</b></td>
+                    <td><b>Speciality:</b></td>
                     <td>
                         <asp:DropDownList ID="ddlSpeciality" runat="server" DataSourceID="SqlDataSourceSpeciality" DataTextField="Speciality" DataValueField="Speciality" SelectedValue='<%# Bind("Speciality") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:DropDownList> 
                     </td>
                 </tr>
                 <tr>
-                    <td><b>Phone</b></td>
+                    <td><b>Phone:</b></td>
                     <td>
                         <asp:TextBox ID="tbPhone" runat="server" Text='<%# Bind("Doctor_phone") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
                     </td>
@@ -193,7 +193,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><b>E-mail</b></td>
+                    <td><b>E-mail:</b></td>
                     <td>
                         <asp:TextBox ID="tbEmail" runat="server" Text='<%# Bind("Doctor_mail") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
                     </td>
@@ -203,7 +203,7 @@
                     </td>
                 </tr>
                 <tr>
-                                <td><b>User Name:</b></td>
+                                <td><b>Username:</b></td>
                                 <td>
                                     <asp:TextBox ID="TextBoxuserName" runat="server" Text='<%# Bind("username") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                                 </td>
@@ -223,7 +223,7 @@
 
             <table>
                 <tr>
-                    <td><b>Name</b></td>
+                    <td><b>Name:</b></td>
                     <td>
                         <asp:Label ID="LabelName" runat="server" Text='<%# Bind("Doctor_name") %>'></asp:Label>
                     </td>
@@ -231,13 +231,13 @@
                         &nbsp;</td>
                 </tr>
                 <tr>
-                    <td><b>Speciality</b></td>
+                    <td><b>Speciality:</b></td>
                     <td>
                           <asp:Label ID="Label1" runat="server" Text='<%# Bind("Speciality") %>'></asp:Label>
                     </td>
                 </tr>
                 <tr>
-                    <td><b>Phone</b></td>
+                    <td><b>Phone:</b></td>
                     <td>
                         <asp:Label ID="LabelPhone" runat="server" Text='<%# Bind("Doctor_phone") %>'></asp:Label>
                     </td>
@@ -245,7 +245,7 @@
                         &nbsp;</td>
                 </tr>
                 <tr>
-                    <td><b>E-mail</b></td>
+                    <td><b>E-mail:</b></td>
                     <td>
                         <asp:Label ID="LabelEmail" runat="server" Text='<%# Bind("Doctor_mail") %>'></asp:Label>
                     </td>
@@ -253,7 +253,7 @@
                         &nbsp;</td>
                 </tr>
                 <tr>
-                                <td><b>User Name:</b></td>
+                                <td><b>Username:</b></td>
                                 <td>
                                     <asp:Label ID="doctortUserNameLabel" runat="server" Text='<%# Bind("username") %>' />
                                 </td>
