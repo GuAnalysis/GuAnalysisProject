@@ -124,6 +124,9 @@
             <asp:Button ID="btCancelDelete" runat="server" Text="No, cancel." BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="Small" OnClick="btCancelDelete_Click" style="left: 1px; top: -2px" />
         </div>
                 </asp:Panel>
+
+    <br />
+
         <div style="margin-left:50ex">
 
                 <asp:FormView ID="fvNurses" runat="server" Width="500px" OnModeChanged="fvNurses_ModeChanged" OnItemDeleted="fvNurses_ItemDeleted" OnItemInserted="fvNurses_ItemInserted" OnItemUpdated="fvNurses_ItemUpdated" DataSourceID="SqlDataSourceDetailsNurses" DataKeyNames="Nurse_ID">
@@ -146,7 +149,7 @@
                                 </td>
                             </tr>
                              <tr>
-                                <td><b>User Name:</b></td>
+                                <td><b>Username:</b></td>
                                 <td>
                                     <asp:TextBox ID="TextBoxuserName" runat="server" Text='<%# Bind("username") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                                 </td>
@@ -157,7 +160,7 @@
                                 </td>
                             </tr>
                               <tr>
-                                <td><b>Email:</b></td>
+                                <td><b>E-mail:</b></td>
                                 <td>
                                     <asp:TextBox ID="TextBoxEmail" runat="server" Text='<%# Bind("email") %>'  BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                                 </td>
@@ -244,7 +247,7 @@
                                </td>
                             </tr>
                                <tr>
-                                <td><b>User Name:</b></td>
+                                <td><b>Username:</b></td>
                                 <td>
                                     <asp:TextBox ID="TextBoxuserName" runat="server" Text='<%# Bind("username") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                                 </td>
@@ -255,7 +258,7 @@
                                 </td>
                             </tr>
                               <tr>
-                                <td><b>Email:</b></td>
+                                <td><b>E-mail:</b></td>
                                 <td>
                                     <asp:TextBox ID="TextBoxEmail" runat="server" Text='<%# Bind("email") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                                 </td>
@@ -328,13 +331,13 @@
                             
                         </tr>
                          <tr>
-                                <td><b> User Name:</b></td>
+                                <td><b> Username:</b></td>
                                 <td>
                                     <asp:Label ID="UserNameLabel" runat="server" Text='<%# Bind("username") %>' />
                                 </td>
                             </tr>
                                  <tr>
-                                <td><b>Nurse Email:</b></td>
+                                <td><b>Nurse E-mail:</b></td>
                                 <td>
                                     <asp:Label ID="EmailLabel" runat="server" Text='<%# Bind("email") %>' />
                                 </td>

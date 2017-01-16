@@ -99,5 +99,32 @@ public partial class Scheduler : System.Web.UI.Page
     }
 
 
-   
+
+
+    protected void btSave_Click(object sender, EventArgs e)
+    {
+        GridViewScheduler.Visible = true;
+    }
+
+    protected void GridViewScheduler_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        
+        if (GridViewScheduler.SelectedIndex >= 0)
+        {
+
+            btDelete.Enabled = true;
+            btEdit.Enabled = true;
+        }
+        else
+        {
+            btDelete.Enabled = false;
+            btEdit.Enabled = false;
+
+        }
+    }
+
+    protected void btSendEmail_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/doctor/SendEmail.aspx");
+    }
 }

@@ -4,7 +4,7 @@
 
         <center>
         <header id="hExam" class="alt">
-            <h1><b><%: Title %>Exam Panel</b></h1>
+            <h2><%: Title %>Exam Panel</h2>
         </header>
         </center>
 
@@ -16,43 +16,45 @@
             </div>
 
             <div style="margin-bottom: 1ex; margin-left:70ex">
-                <asp:Button ID="btClose" runat="server" Text="Close" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btClose_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: -2px; top: 0px" />
+                <asp:Button ID="btClose" runat="server" Text="OK" BackColor="#5D7B9D" Font-Size="Small" OnClick="btClose_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: -2px; top: 0px" Font-Names="Arial" />
             </div>
         </asp:Panel>
 
     <div style="margin-left: 30ex; width: 1000px">
         <asp:Panel ID="PanelGridExam" runat="server">
 
-            <div style="margin-left: 21ex;">
+            <div>
                 <asp:Panel ID="PanelSearchExam" runat="server" Visible="false" HorizontalAlign="Justify">
 
                     <table>
                         <tr>
-                            <td style="width:100px; height: 35px;">Exam type:</td>
+                            <td style="width:100px; height: 35px;"><b>Exam type:</b></td>
                             <td style="width: 200px; height: 35px;">
                                 <asp:DropDownList ID="ddlSearchTypeOfExam" runat="server"
                                     DataSourceID="SqlDataSourceType"
                                     DataTextField="Exam_type"
                                     DataValueField="Exam_type"
-                                    AppendDataBoundItems="true" Height="35px">
+                                    AppendDataBoundItems="true" Height="35px" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
                                     <asp:ListItem Value="%">Show all</asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSourceType" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>" SelectCommand="SELECT * FROM [ExamType]"></asp:SqlDataSource>
                             </td>
                         </tr>
                         <tr>
-                            <td style="width:100px; height:35px">Exam:</td>
+                            <td style="width:100px; height:35px"><b>Exam:</b></td>
                             <td style="width: 200px;">
-                                <asp:TextBox ID="tbSearchExam" runat="server" Height="35px"></asp:TextBox>
+                                <asp:TextBox ID="tbSearchExam" runat="server" Height="35px" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
                             </td>
                         </tr>
                     </table>
 
-                    <center>
-                    <asp:Button ID="btPerformSearch" runat="server" Text="Search" BackColor="#5D7B9D" Font-Size="Smaller" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: -1px; top: 0px"/>
-                    <asp:Button ID="btCloseSearch" runat="server" Text="Search and close" BackColor="#5D7B9D" Font-Size="Smaller" Width="139px" OnClick="btCloseSearch_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: 4px; top: -1px; margin-top: 0"/>
-                    <asp:Button ID="btClearSearch" runat="server" Text="Clear search" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btClearSearch_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: 6px; top: -1px"/>
-                    </center>
+                    <table>
+                        <tr>
+                            <td><asp:Button ID="btPerformSearch" runat="server" Text="Search" BackColor="#5D7B9D" Font-Size="Small" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" style="left: -1px; top: -1px"/></td>
+                            <td><asp:Button ID="btCloseSearch" runat="server" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="Small" OnClick="btCloseSearch_Click" Text="Search and close" Width="170px" style="left: -70px;"/></td>
+                            <td><asp:Button ID="btClearSearch" runat="server" Text="Clear search" BackColor="#5D7B9D" Font-Size="Small" OnClick="btClearSearch_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" style="left: -171px;"/></td>
+                        </tr>
+                    </table>
 
                 </asp:Panel>
             </div>
@@ -68,7 +70,7 @@
 
                 <Columns>
                     <asp:CommandField SelectText="&gt;" ShowSelectButton="True" ButtonType="Button">
-                        <ControlStyle BackColor="#5D7B9D" BorderColor="#003366" BorderStyle="Solid" BorderWidth="1px" Font-Size="X-Small" Height="30px" Width="35px" />
+                        <ControlStyle BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Size="X-Small" Height="35px" Width="40px" />
                         <ItemStyle ForeColor="#003366" HorizontalAlign="Center" Width="5%" VerticalAlign="Middle" />
                     </asp:CommandField>
                     <asp:BoundField DataField="Exam_Name" HeaderText="Exam Name" SortExpression="Exam_Name">
@@ -91,10 +93,10 @@
             </asp:GridView>
 
             <center>
-            <asp:Button ID="btNew" runat="server" Text="New" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btNew_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: -1px; top: 5px"/>
-            <asp:Button ID="btEdit" runat="server" Text="Edit" Enabled="False" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btEdit_Click1" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: 3px; top: 4px"/>
-            <asp:Button ID="btDelete" runat="server" Text="Delete" Enabled="False" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btDelete_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: 6px; top: 5px"/>
-            <asp:Button ID="btSearch" runat="server" Text="Search" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btSearch_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: 8px; top: 6px"/>
+            <asp:Button ID="btNew" runat="server" Text="New" BackColor="#5D7B9D" Font-Size="Small" OnClick="btNew_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: -1px; top: 5px" Height="50px" Width="100px"/>
+            <asp:Button ID="btEdit" runat="server" Text="Edit" Enabled="False" BackColor="#5D7B9D" Font-Size="Small" OnClick="btEdit_Click1" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: 3px; top: 4px" Height="50px" Width="100px"/>
+            <asp:Button ID="btDelete" runat="server" Text="Delete" Enabled="False" BackColor="#5D7B9D" Font-Size="Small" OnClick="btDelete_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: 6px; top: 5px" Height="50px" Width="100px"/>
+            <asp:Button ID="btSearch" runat="server" Text="Search" BackColor="#5D7B9D" Font-Size="Small" OnClick="btSearch_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: 8px; top: 6px" Height="50px" Width="100px"/>
             </center>
 
             <br />
@@ -118,8 +120,8 @@
                 <b>Are you sure you want to delete the exam?</b>
             </center>
             <div style="margin: 1em; margin-left:67ex;">
-                <asp:Button ID="btConfirmDelete" runat="server" Text="Yes, delete" BackColor="#5D7B9D" Font-Size="Smaller" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" OnClick="btConfirmDelete_Click" style="left: -1px; top: -1px" />
-                <asp:Button ID="btCanceldelete" runat="server" Text="No, cancel!" BackColor="#5D7B9D" Font-Size="Smaller" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" OnClick="btCanceldelete_Click" style="left: 1px; top: -2px" />
+                <asp:Button ID="btConfirmDelete" runat="server" Text="Yes, remove." BackColor="#5D7B9D" Font-Size="Small" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" OnClick="btConfirmDelete_Click" style="left: -1px; top: -1px" />
+                <asp:Button ID="btCanceldelete" runat="server" Text="No, cancel." BackColor="#5D7B9D" Font-Size="Small" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" OnClick="btCanceldelete_Click" style="left: 1px; top: -2px" />
             </div>
 
         </asp:Panel>
@@ -346,7 +348,7 @@
         SelectCommand="SELECT Exam.Exam_ID, Exam.ExamType_ID, Exam.Exam_Name, Exam.Price, Exam.Fasting, Exam.Smoke, Exam.Alcoholic_Drinks, ExamType.Exam_type, Exam.Urgent, Exam.Duration FROM Exam INNER JOIN ExamType ON Exam.ExamType_ID = ExamType.ExamType_ID WHERE (Exam.Exam_ID = @Exam_ID)" 
         DeleteCommand="DELETE FROM [Exam] WHERE [Exam_ID] = @Exam_ID" 
         InsertCommand="INSERT INTO Exam(Exam_Name, ExamType_ID, Price, Fasting, Smoke, Alcoholic_Drinks, Urgent, Duration) VALUES (@Exam_Name, @ExamType_ID, @Price, @Fasting, @Smoke, @Alcoholic_Drinks, @Urgent, @Duration)" 
-        UpdateCommand="UPDATE Exam SET Exam_Name = @Exam_Name, ExamType_ID = @ExamType_ID, Price = @Price, Fasting = @Fasting, Smoke = @Smoke, Alcoholic_Drinks = @Alcoholic_Drinks, Urgent =, Duration = WHERE (Exam_ID = @Exam_ID)">
+        UpdateCommand="UPDATE Exam SET Exam_Name = @Exam_Name, ExamType_ID = @ExamType_ID, Price = @Price, Fasting = @Fasting, Smoke = @Smoke, Alcoholic_Drinks = @Alcoholic_Drinks, Urgent =@Urgent, Duration = @Duration WHERE (Exam_ID = @Exam_ID)">
         <DeleteParameters>
             <asp:Parameter Name="Exam_ID" />
         </DeleteParameters>
