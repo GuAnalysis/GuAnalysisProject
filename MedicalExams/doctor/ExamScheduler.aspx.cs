@@ -12,30 +12,23 @@ public partial class Scheduler : System.Web.UI.Page
 
     }
 
-    protected void ExamButton_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/manager/TypeOfExams.aspx");
-    }
-
-    protected void ButtonScheduler_Click(object sender, EventArgs e)
-    {
-        SchedulerPanel.Visible = true;
-        ScheduledExamsPanel.Visible = false;
-    }
+    //protected void ExamButton_Click(object sender, EventArgs e)
+    //{
+    //    Response.Redirect("~/manager/TypeOfExams.aspx");
+    //}
 
     protected void ButtonExams_Click(object sender, EventArgs e)
     {
-        SchedulerPanel.Visible = false;
+       
         ScheduledExamsPanel.Visible = true;
         FormViewScheduler.Visible = true;
     }
 
     protected void CalendarExamDate_SelectionChanged(object sender, EventArgs e)
     {
-
-        DateLabel.Text = CalendarExamDate.SelectedDate.ToString("dd/MM/yyyy");
-
-        CalendarExamDate.Visible = true;
+        
+        //DateLabel.Text = CalendarExamDate.SelectedDate.ToString("dd/MM/yyyy");
+        //CalendarExamDate.Visible = true;
         GridViewScheduler.DataBind();
 
 
@@ -81,6 +74,7 @@ public partial class Scheduler : System.Web.UI.Page
 
     protected void ddlAddExam_SelectedIndexChanged(object sender, EventArgs e)
     {
+       
         GridViewScheduler.DataBind();
     }
 
@@ -103,6 +97,7 @@ public partial class Scheduler : System.Web.UI.Page
     {
         GridViewScheduler.DataBind();
     }
+
 
    
 }
