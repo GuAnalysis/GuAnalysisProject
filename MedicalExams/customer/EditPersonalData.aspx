@@ -14,32 +14,32 @@
 
                  <table>
                     <tr>
-                        <td>Name:</td>
+                        <td><b>Name:</b></td>
                         <td><asp:TextBox ID="Patient_nameTextBox" runat="server" Text='<%# Bind("Patient_name") %>' /></td>
                    </tr>
                     <tr>
-                         <td>Address:</td>
+                         <td><b>Address:</b></td>
                         <td><asp:TextBox ID="Patient_addressTextBox" runat="server" Text='<%# Bind("Patient_address") %>' /></td>
                    
                     </tr>
                     <tr>
-                        <td>Phone:</td>
+                        <td><b>Phone:</b></td>
                         <td><asp:TextBox ID="Patient_phoneTextBox" runat="server" Text='<%# Bind("Patient_phone") %>' /></td>
                    
                     </tr>
                     <tr>
-                        <td>Postal code:</td>
+                        <td><b>Postal code:</b></td>
                         <td><asp:TextBox ID="Postal_codeTextBox" runat="server" Text='<%# Bind("Postal_code") %>' /></td>
                    <td><asp:RegularExpressionValidator ID="RegularExpressionValidatorPostalCode" runat="server" ErrorMessage="Invalid postal code must be (eg:1234-546)" ValidationExpression="[0-9]{4}-[0-9]{3}" ControlToValidate="Postal_codeTextBox" Display="Dynamic">*</asp:RegularExpressionValidator></td>
                     </tr>
                     <tr>
 
-                        <td>Birth date:</td>
+                        <td><b>Birth date:</b></td>
                         <td><asp:TextBox ID="Birth_dateTextBox" runat="server" Text='<%# Bind("Birth_date", "{0:d}") %>' /></td>
                 
                     </tr>
                      <tr>
-                     <td>Gender:</td>
+                     <td><b>Gender:</b></td>
                                 <td>
                                     <asp:DropDownList ID="DropDownListGender" runat="server" DataTextField="Gender" DataValueField="Gender" SelectedValue='<%# Bind("Gender") %>'>
                                         <asp:ListItem Value="M">Male</asp:ListItem>
@@ -49,7 +49,7 @@
                             
                             </tr>
                      <tr>
-                        <td>Email:</td>
+                        <td><b>Email:</b></td>
                         <td><asp:TextBox ID="emailTextBox" runat="server" Text='<%# Bind("email") %>' /></td>
                    
                     </tr>
@@ -64,47 +64,49 @@
                 
                 <table>
                     <tr>
-                        <td>Name:</td>
+                        <td><b>Name:</b></td>
                         <td><asp:TextBox ID="Patient_nameTextBox" runat="server" Text='<%# Bind("Patient_name") %>' /></td>
                    </tr>
                     <tr>
-                         <td>Address:</td>
+                         <td><b>Address:</b></td>
                         <td><asp:TextBox ID="Patient_addressTextBox" runat="server" Text='<%# Bind("Patient_address") %>' /></td>
                    
                     </tr>
                     <tr>
-                        <td>Phone:</td>
+                        <td><b>Phone:</b></td>
                         <td><asp:TextBox ID="Patient_phoneTextBox" runat="server" Text='<%# Bind("Patient_phone") %>' /></td>
                    
                     </tr>
                     <tr>
-                        <td>Postal code:</td>
+                        <td><b>Postal code:</b></td>
                         <td><asp:TextBox ID="Postal_codeTextBox" runat="server" Text='<%# Bind("Postal_code") %>' /></td>
-                   
+                   <td>
+                      <asp:RegularExpressionValidator ID="RegularExpressionValidatorPostalCode" runat="server" ErrorMessage="Invalid postal code must be (eg:1234-546)" ValidationExpression="[0-9]{4}-[0-9]{3}" ControlToValidate="Postal_codeTextBox" Display="Dynamic">*</asp:RegularExpressionValidator>
+                   </td>
                     </tr>
                     <tr>
 
-                        <td>Birth date:</td>
+                        <td><b>Birth date:</b></td>
                         <td><asp:TextBox ID="Birth_dateTextBox" runat="server" Text='<%# Bind("Birth_date", "{0:d}") %>' /></td>
                 
                     </tr>
                     <tr>
-                        <td>Gender:</td>
+                        <td><b>Gender:</b></td>
                         <td><asp:TextBox ID="GenderTextBox" runat="server" Text='<%# Bind("Gender") %>' /></td>
                    
                     </tr>
                     <tr>
-                        <td>Health number:</td>
+                        <td><b>Health number:</b></td>
                         <td><asp:TextBox ID="Health_numberTextBox" runat="server" Text='<%# Bind("Health_number") %>' /></td>
                   
                     </tr>
                     <tr>
-                        <td>Username:</td>
+                        <td><b>Username:</b></td>
                         <td><asp:TextBox ID="usernameTextBox" runat="server" Text='<%# Bind("Patient_username") %>' /></td>
                   
                     </tr>
                     <tr>
-                        <td>Email:</td>
+                        <td><b>Email:</b></td>
                         <td><asp:TextBox ID="emailTextBox" runat="server" Text='<%# Bind("email") %>' /></td>
                    
                     </tr>
@@ -120,61 +122,63 @@
 
                  
                     <tr>
-                        <td>Name:</td>
+                        <td><b>Name:</b></td>
                         <td>
                             <asp:Label ID="Patient_nameLabel" runat="server" Text='<%# Bind("Patient_name") %>' /></td>
 
                     </tr>
 
                     <tr>
-                        <td>Address:</td>
+                        <td><b>Address:</b></td>
                         <td>
                             <asp:Label ID="Patient_addressLabel" runat="server" Text='<%# Bind("Patient_address") %>' /></td>
 
                     </tr>
 
                     <tr>
-                        <td>Phone:</td>
+                        <td></b>Phone:</b></td>
                         <td>
                             <asp:Label ID="Patient_phoneLabel" runat="server" Text='<%# Bind("Patient_phone") %>' /></td>
 
                     </tr>
 
                     <tr>
-                        <td>Postal code:</td>
+                        <td><b>Postal code:</b></td>
                         <td>
                             <asp:Label ID="Postal_codeLabel" runat="server" Text='<%# Bind("Postal_code") %>' /></td>
+                        <td>
 
+                        </td>
                     </tr>
 
                     <tr>
-                        <td>Birth date:</td>
+                        <td><b>Birth date:</b></td>
                         <td>
                             <asp:Label ID="Birth_dateLabel" runat="server" Text='<%# Bind("Birth_date", "{0:d}") %>' /></td>
 
                     </tr>
 
                      <tr>
-                                <td>Gender:</td>
+                                <td><b>Gender:</b></td>
                                 <td>
                                    <asp:Label ID="LabelGender" runat="server" Text='<%# Bind("Gender") %>' /></td>
 
                             </tr>
                     <tr>
-                        <td>Health number:</td>
+                        <td><b>Health number:</b></td>
                         <td>
                             <asp:Label ID="Health_numberLabel" runat="server" Text='<%# Bind("Health_number") %>' /></td>
 
                     </tr>
 
                     <tr>
-                        <td>Username:</td>
+                        <td><b>Username:</b></td>
                         <td>
                             <asp:Label ID="usernameLabel" runat="server" Text='<%# Bind("Patient_username") %>' /></td>
                     </tr>
 
                     <tr>
-                        <td>Email:</td>
+                        <td><b>Email:</b></td>
                         <td>
                             <asp:Label ID="emailLabel" runat="server" Text='<%# Bind("email") %>' /></td>
 

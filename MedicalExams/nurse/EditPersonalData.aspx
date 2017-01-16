@@ -88,7 +88,7 @@
 
                                 </td>
                                  <td>
-                             <asp:RegularExpressionValidator ID="RegularExpressionValidatorBirthdate" runat="server" ErrorMessage="Invalid date must be (eg:aa.bb.cccc)" ValidationExpression="(\d{1,2}\.\d{1,2}\.\d{4})" ControlToValidate="TextBoxBirthDate" Display="Dynamic" Text='<%# Eval("Nurse_Bithdate", "{0:d}") %>'></asp:RegularExpressionValidator>
+                             <asp:RegularExpressionValidator ID="RegularExpressionValidatorBirthdate" runat="server" ErrorMessage="Invalid date must be (eg:aa.bb.cccc)" ValidationExpression="(\d{1,2}\.\d{1,2}\.\d{4})" ControlToValidate="TextBoxBirthDate" Display="Dynamic" Text='*'></asp:RegularExpressionValidator>
 
                                  </td>
                        
