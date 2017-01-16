@@ -51,7 +51,7 @@
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                     <Columns>
                         <asp:CommandField ButtonType="Button" SelectText="&gt;   " ShowSelectButton="True">
-                            <ControlStyle BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="X-Small" Height="30px" Width="35px" />
+                            <ControlStyle BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="X-Small" Height="35px" Width="40px" />
                             <HeaderStyle Width="50px" />
                             <ItemStyle VerticalAlign="Middle" />
                         </asp:CommandField>
@@ -85,10 +85,10 @@
         </div> 
                   
         <center>
-        <asp:Button ID="btNew" runat="server" Text="New" BackColor="#5D7B9D" Font-Names="Arial" Font-Size="Small" Height="40px" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" OnClick="btNew_Click"/>
-        <asp:Button ID="btEdit" runat="server" Text="Edit" BackColor="#5D7B9D" Font-Names="Arial" Font-Size="Small" Height="40px" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Enabled="False" OnClick="btEdit_Click"/>
-        <asp:Button ID="btDelete" runat="server" Text="Delete" BackColor="#5D7B9D" Font-Names="Arial" Font-Size="Small" Height="40px" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Enabled="False" OnClick="btDelete_Click"/>
-        <asp:Button ID="btSearch" runat="server" Text="Search" BackColor="#5D7B9D" Font-Names="Arial" Font-Size="Small" Height="40px" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" OnClick="btSearch_Click"/>
+        <asp:Button ID="btNew" runat="server" Text="New" BackColor="#5D7B9D" Font-Names="Arial" Font-Size="Small" Height="50px" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" OnClick="btNew_Click" Width="100px"/>
+        <asp:Button ID="btEdit" runat="server" Text="Edit" BackColor="#5D7B9D" Font-Names="Arial" Font-Size="Small" Height="50px" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Enabled="False" OnClick="btEdit_Click" Width="100px"/>
+        <asp:Button ID="btDelete" runat="server" Text="Delete" BackColor="#5D7B9D" Font-Names="Arial" Font-Size="Small" Height="50px" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Enabled="False" OnClick="btDelete_Click" Width="100px"/>
+        <asp:Button ID="btSearch" runat="server" Text="Search" BackColor="#5D7B9D" Font-Names="Arial" Font-Size="Small" Height="50px" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" OnClick="btSearch_Click" Width="100px"/>
         </center>
 
       </asp:Panel>
@@ -175,7 +175,7 @@
                                 </td>
                             </tr>
                                <tr>
-                                <td><b>User Name:</b></td>
+                                <td><b>Username:</b></td>
                                 <td>
                                     <asp:TextBox ID="TextBoxuserName" runat="server" Text='<%# Bind("Patient_username") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                                 </td>
@@ -186,7 +186,7 @@
                                 </td>
                             </tr>
                               <tr>
-                                <td><b>Email:</b></td>
+                                <td><b>E-mail:</b></td>
                                 <td>
                                     <asp:TextBox ID="TextBoxEmail" runat="server" Text='<%# Bind("email") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                                 </td>
@@ -288,7 +288,7 @@
                             </tr>
 
                              <tr>
-                                <td><b>User Name:</b></td>
+                                <td><b>Username:</b></td>
                                 <td>
                                     <asp:TextBox ID="TextBoxuserName" runat="server" Text='<%# Bind("Patient_username") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                                 </td>
@@ -299,7 +299,7 @@
                                 </td>
                             </tr>
                               <tr>
-                                <td><b>Email:</b></td>
+                                <td><b>E-mail:</b></td>
                                 <td>
                                     <asp:TextBox ID="TextBoxEmail" runat="server" Text='<%# Bind("email") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                                 </td>
@@ -376,13 +376,13 @@
                                 </td>
                             </tr>
                               <tr>
-                                <td><b>Patient User Name:</b></td>
+                                <td><b>Patient Username:</b></td>
                                 <td style="width: 202px">
                                     <asp:Label ID="patientUserNameLabel" runat="server" Text='<%# Bind("Patient_username") %>' />
                                 </td>
                             </tr>
                                  <tr>
-                                <td><b>Patient Email:</b></td>
+                                <td><b>Patient E-mail:</b></td>
                                 <td style="width: 202px">
                                     <asp:Label ID="patientEmailLabel" runat="server" Text='<%# Bind("email") %>' />
                                 </td>

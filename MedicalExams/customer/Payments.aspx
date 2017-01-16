@@ -82,10 +82,6 @@
     <div style="margin-left:21ex">
     </div>
     </asp:Panel>
-<<<<<<< HEAD
-=======
-    <asp:Button ID="btPay" runat="server" Text="Button" />
->>>>>>> origin/master
 
         <asp:Label ID="lblmsg" runat="server" />
 
