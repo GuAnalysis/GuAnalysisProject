@@ -4,8 +4,17 @@
     
        
 <center>
-    <form action="/your-charge-code" method="POST" id="payment-form">
+    <form action="/your-charge-code" id="payment-form">
   <span class="payment-errors"></span>
+
+  
+  <div class="form-row">
+    <label>
+      <span>Card Holder</span>
+      <input type="text" size="20" data-stripe="number">
+    </label>
+  </div>
+    
 
   <div class="form-row">
     <label>
@@ -31,12 +40,6 @@
     </label>
   </div>
 
-  <div class="form-row">
-    <label>
-      <span>Billing Postal Code</span>
-      <input type="text" size="6" data-stripe="address_zip">
-    </label>
-  </div>
 
          
 <asp:Button runat="server"  Text="Payment" CssClass="btn btn-default" BackColor="#5D7B9D" Font-Size="Smaller" />
