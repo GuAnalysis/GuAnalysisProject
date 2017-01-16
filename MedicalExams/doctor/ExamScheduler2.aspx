@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Scheduler" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ExamScheduler1.aspx.cs" Inherits="Scheduler" %>
+﻿<%@ Page Title="Scheduler" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ExamScheduler2.aspx.cs" Inherits="Scheduler" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div style="margin-left: auto; margin-right: auto; width: 1000px">
