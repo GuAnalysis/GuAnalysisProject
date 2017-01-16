@@ -25,6 +25,6 @@ public partial class SendEmail : System.Web.UI.Page
         message.Body = MessageTb.Text;
         SmtpClient smtpClient = new SmtpClient();
         smtpClient.Send(message);
-        Response.Redirect("~/Default.aspx"); // To know when the email was sent
+        Response.Redirect("~/doctor/ExamScheduler.aspx"); // To know when the email was sent
     }
 }
