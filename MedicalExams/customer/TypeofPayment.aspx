@@ -1,13 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="TypeofPayment.aspx.cs" Inherits="customer_TypeofPayment" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    
-       
-<center>
+  
+
+
+    <center>
     <form action="/your-charge-code" id="payment-form">
   <span class="payment-errors"></span>
 
+  <div class="form-row" style="background-color:lightblue; height:50px; width:300px">
+      <span><b>Price</b></span>
+      <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+  </div>
   
+    
   <div class="form-row">
     <label>
       <span>Card Holder</span>
