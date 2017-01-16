@@ -2,61 +2,62 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    <div style="margin-left: auto; margin-right: auto; width: 1000px">
         <center>
         <header id="hExam" class="alt">
-            <h1><b>Exam Panel</b></h1>
+            <h1><b><%: Title %>Exam Panel</b></h1>
         </header>
         </center>
+
         <br />
-        <br />
-        <br />
-        <br />
+
         <asp:Panel ID="panelInfo" runat="server" Visible="false">
-            <div style="margin: 1em">
+            <div style="margin: 1em; margin-left:65ex">
                 <asp:Label ID="LabelInfo" runat="server"></asp:Label>
             </div>
-            <div style="margin-bottom: 1ex;">
 
-                <asp:Button ID="btClose" runat="server" Text="Close" BackColor="#6D8AAA" Font-Size="Smaller" OnClick="btClose_Click" />
+            <div style="margin-bottom: 1ex; margin-left:70ex">
+                <asp:Button ID="btClose" runat="server" Text="Close" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btClose_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: -2px; top: 0px" />
             </div>
         </asp:Panel>
-    </div>
-    <div style="margin-left: auto; margin-right: auto; width: 1000px">
+
+    <div style="margin-left: 30ex; width: 1000px">
         <asp:Panel ID="PanelGridExam" runat="server">
-            <div style="margin-bottom: 1ex;">
-                <asp:Panel ID="PanelSearchExam" runat="server" GroupingText="Search" BackColor="#F7FAFE" Visible="false" HorizontalAlign="Justify">
+
+            <div style="margin-left: 21ex;">
+                <asp:Panel ID="PanelSearchExam" runat="server" Visible="false" HorizontalAlign="Justify">
 
                     <table>
                         <tr>
-                            <td style="text-align: center">ExamType:</td>
-                            <td style="width: 100%;">
+                            <td style="width:100px; height: 35px;">Exam type:</td>
+                            <td style="width: 200px; height: 35px;">
                                 <asp:DropDownList ID="ddlSearchTypeOfExam" runat="server"
                                     DataSourceID="SqlDataSourceType"
                                     DataTextField="Exam_type"
                                     DataValueField="Exam_type"
-                                    AppendDataBoundItems="true">
+                                    AppendDataBoundItems="true" Height="35px">
                                     <asp:ListItem Value="%">Show all</asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSourceType" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>" SelectCommand="SELECT * FROM [ExamType]"></asp:SqlDataSource>
                             </td>
-
                         </tr>
-
                         <tr>
-
-                            <td>Exam:</td>
-                            <td style="width: 100%;">
-                                <asp:TextBox ID="tbSearchExam" runat="server"></asp:TextBox>
+                            <td style="width:100px; height:35px">Exam:</td>
+                            <td style="width: 200px;">
+                                <asp:TextBox ID="tbSearchExam" runat="server" Height="35px"></asp:TextBox>
                             </td>
                         </tr>
                     </table>
-                    <asp:Button ID="btPerformSearch" runat="server" Text="Search" BackColor="#5D7B9D" Font-Size="Smaller" />
-                    <asp:Button ID="btCloseSearch" runat="server" Text="Search and close" BackColor="#5D7B9D" BorderColor="#003366" Font-Size="Smaller" Width="139px" OnClick="btCloseSearch_Click" />
-                    <asp:Button ID="btClearSearch" runat="server" Text="Clear search" BackColor="#5D7B9D" BorderColor="#003366" Font-Size="Smaller" OnClick="btClearSearch_Click" />
+
+                    <center>
+                    <asp:Button ID="btPerformSearch" runat="server" Text="Search" BackColor="#5D7B9D" Font-Size="Smaller" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: -1px; top: 0px"/>
+                    <asp:Button ID="btCloseSearch" runat="server" Text="Search and close" BackColor="#5D7B9D" Font-Size="Smaller" Width="139px" OnClick="btCloseSearch_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: 4px; top: -1px; margin-top: 0"/>
+                    <asp:Button ID="btClearSearch" runat="server" Text="Clear search" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btClearSearch_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: 6px; top: -1px"/>
+                    </center>
 
                 </asp:Panel>
             </div>
+
+            <br />
 
             <asp:GridView ID="GridViewExam" runat="server" AutoGenerateColumns="False"
                 DataKeyNames="Exam_ID" DataSourceID="SqlDataSourceTypeOfExam"
@@ -89,15 +90,18 @@
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
 
+            <center>
+            <asp:Button ID="btNew" runat="server" Text="New" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btNew_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: -1px; top: 5px"/>
+            <asp:Button ID="btEdit" runat="server" Text="Edit" Enabled="False" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btEdit_Click1" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: 3px; top: 4px"/>
+            <asp:Button ID="btDelete" runat="server" Text="Delete" Enabled="False" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btDelete_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: 6px; top: 5px"/>
+            <asp:Button ID="btSearch" runat="server" Text="Search" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btSearch_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: 8px; top: 6px"/>
+            </center>
 
-            <asp:Button ID="btNew" runat="server" Text="New" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btNew_Click" />
-            <asp:Button ID="btEdit" runat="server" Text="Edit" Enabled="False" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btEdit_Click1" />
-            <asp:Button ID="btDelete" runat="server" Text="Delete" Enabled="False" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btDelete_Click" />
-            <asp:Button ID="btSearch" runat="server" Text="Search" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btSearch_Click" />
             <br />
             <br />
 
         </asp:Panel>
+        </div>
 
         <asp:SqlDataSource ID="SqlDataSourceTypeOfExam" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>"
             SelectCommand="SELECT Exam.Exam_ID, Exam.ExamType_ID, Exam.Exam_Name, Exam.Price, Exam.Fasting, Exam.Smoke, Exam.Alcoholic_Drinks, ExamType.Exam_type AS Exam_Type FROM Exam INNER JOIN ExamType ON Exam.ExamType_ID = ExamType.ExamType_ID WHERE (Exam.Exam_Name LIKE '%' + @Exam_Name + '%') AND (ExamType.Exam_type LIKE @Exam_Type)">
@@ -109,18 +113,18 @@
 
         </asp:SqlDataSource>
 
-        <asp:Panel ID="PanelDeleteExam" runat="server" BackColor="#F7FAFE" Visible="false">
-            <div style="margin: 1em">
+        <asp:Panel ID="PanelDeleteExam" runat="server" BackColor="#FFCC99" Visible="false">
+            <center>
                 <b>Are you sure you want to delete the exam?</b>
-            </div>
-            <div>
-
-                <asp:Button ID="btConfirmDelete" runat="server" Text="Yes, delete" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btConfirmDelete_Click" />
-                <asp:Button ID="btCanceldelete" runat="server" Text="No, cancel!" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btCanceldelete_Click" />
+            </center>
+            <div style="margin: 1em; margin-left:67ex;">
+                <asp:Button ID="btConfirmDelete" runat="server" Text="Yes, delete" BackColor="#5D7B9D" Font-Size="Smaller" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" OnClick="btConfirmDelete_Click" style="left: -1px; top: -1px" />
+                <asp:Button ID="btCanceldelete" runat="server" Text="No, cancel!" BackColor="#5D7B9D" Font-Size="Smaller" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" OnClick="btCanceldelete_Click" style="left: 1px; top: -2px" />
             </div>
 
         </asp:Panel>
 
+        <div style="margin-left:50ex">
         <asp:FormView ID="FormViewExam" runat="server" DataKeyNames="Exam_ID"
             DataSourceID="SqlDataSourceExamDetails" OnItemDeleted="FormViewExam_ItemDeleted"
             OnItemInserted="FormViewExam_ItemInserted" OnItemUpdated="FormViewExam_ItemUpdated"
@@ -132,7 +136,7 @@
                     <tr>
                         <td><b>Exam name:</b></td>
                         <td>
-                            <asp:TextBox ID="ExamNameTextBox" runat="server" Text='<%# Bind("Exam_Name") %>' />
+                            <asp:TextBox ID="ExamNameTextBox" runat="server" Text='<%# Bind("Exam_Name") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                         </td>
                         <td>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" ErrorMessage="Exam name is required." ControlToValidate="ExamNameTextBox" Display="Dynamic" ToolTip="." SetFocusOnError="True">*</asp:RequiredFieldValidator>
@@ -142,7 +146,7 @@
                         <td><b>Exam type:</b></td>
                         <td>
 
-                            <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="true" DataSourceID="SqlDataSourceType" DataTextField="Exam_Type" DataValueField="ExamType_ID" SelectedValue='<%# Bind("ExamType_ID") %>'>
+                            <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="true" DataSourceID="SqlDataSourceType" DataTextField="Exam_Type" DataValueField="ExamType_ID" SelectedValue='<%# Bind("ExamType_ID") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px">
                             </asp:DropDownList>
                         </td>
                         <td>
@@ -157,7 +161,7 @@
                         <tr>
                             <td><b>Price:</b></td>
                             <td>
-                                <asp:TextBox ID="PriceTextBox" runat="server" Text='<%# Bind("Price") %>' />
+                                <asp:TextBox ID="PriceTextBox" runat="server" Text='<%# Bind("Price") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorPrice" runat="server" ControlToValidate="PriceTextBox" Display="Dynamic" ErrorMessage="Price is required." SetFocusOnError="True" Text="*" ToolTip="Price is required.">*</asp:RequiredFieldValidator>
@@ -167,7 +171,7 @@
                         <tr>
                             <td><b>Fasting:</b></td>
                             <td> 
-                                <asp:TextBox ID="FastingTextBox" runat="server" Text='<%# Bind("Fasting") %>' />
+                                <asp:TextBox ID="FastingTextBox" runat="server" Text='<%# Bind("Fasting") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                             </td>
                                 
 
@@ -196,14 +200,14 @@
                         <tr>
                             <td><b>Duration:</b></td>
                             <td>
-                                <asp:TextBox ID="DurationTextBox" runat="server" Text='<%# Bind("Duration") %>' />
+                                <asp:TextBox ID="DurationTextBox" runat="server" Text='<%# Bind("Duration") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                             </td>
                         </tr>
                     </caption>
                 </table>
 
-                <asp:Button ID="btSave" runat="server" Text="Save" CommandName="Update" BackColor="#6D8AAA" Font-Size="Smaller" />
-                <asp:Button ID="btCancel" runat="server" Text="Cancel" CommandName="Cancel" BackColor="#6D8AAA" Font-Size="Smaller" />
+                <asp:Button ID="btSave" runat="server" Text="Save" CommandName="Update" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px" Font-Size="Smaller" />
+                <asp:Button ID="btCancel" runat="server" Text="Cancel" CommandName="Cancel" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px" Font-Size="Smaller" />
             </EditItemTemplate>
             <InsertItemTemplate>
 
@@ -215,7 +219,7 @@
                     <tr>
                         <td><b>Exam name:</b></td>
                         <td>
-                            <asp:TextBox ID="ExamNameTextBox" runat="server" Text='<%# Bind("Exam_Name") %>' />
+                            <asp:TextBox ID="ExamNameTextBox" runat="server" Text='<%# Bind("Exam_Name") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                         </td>
                         <td>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" ErrorMessage="Exam name is required." ControlToValidate="ExamNameTextBox" Display="Dynamic" ToolTip="." SetFocusOnError="True">*</asp:RequiredFieldValidator>
@@ -224,7 +228,7 @@
                     <tr>
                         <td><b>Exam type:</b></td>
                         <td>
-                            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSourceType" DataTextField="Exam_type" DataValueField="ExamType_ID" SelectedValue='<%# Bind("ExamType_ID") %>'>
+                            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSourceType" DataTextField="Exam_type" DataValueField="ExamType_ID" SelectedValue='<%# Bind("ExamType_ID") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px">
                             </asp:DropDownList>
                         </td>
                         <td>
@@ -238,7 +242,7 @@
                         <tr>
                             <td><b>Price:</b></td>
                             <td>
-                                <asp:TextBox ID="PriceTextBox" runat="server" Text='<%# Bind("Price") %>' />
+                                <asp:TextBox ID="PriceTextBox" runat="server" Text='<%# Bind("Price") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorPrice" runat="server" ControlToValidate="PriceTextBox" Display="Dynamic" ErrorMessage="Price is required." SetFocusOnError="True" Text="*" ToolTip="Price is required.">*</asp:RequiredFieldValidator>
@@ -248,7 +252,7 @@
                         <tr>
                             <td><b>Fasting:</b></td>
                             <td>
-                                <asp:TextBox ID="FastingTextBox" runat="server" Text='<%# Bind("Fasting") %>' />
+                                <asp:TextBox ID="FastingTextBox" runat="server" Text='<%# Bind("Fasting") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                             </td>
                         </tr>
                         <tr>
@@ -275,15 +279,15 @@
                         <tr>
                             <td><b>Duration:</b></td>
                             <td>
-                                <asp:TextBox ID="DurationTextBox" runat="server" Text='<%# Bind("Duration") %>' />
+                                <asp:TextBox ID="DurationTextBox" runat="server" Text='<%# Bind("Duration") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                             </td>
                         </tr>
                     </caption>
 
                 </table>
 
-                <asp:Button ID="btSave" runat="server" Text="Save" CommandName="Insert" BackColor="#6D8AAA" Font-Size="Smaller" />
-                <asp:Button ID="btCancel" runat="server" Text="Cancel" CommandName="Cancel" BackColor="#6D8AAA" Font-Size="Smaller" CausesValidation="False" />
+                <asp:Button ID="btSave" runat="server" Text="Save" CommandName="Insert" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px" Font-Size="Smaller" />
+                <asp:Button ID="btCancel" runat="server" Text="Cancel" CommandName="Cancel" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px" Font-Size="Smaller" CausesValidation="False" />
             </InsertItemTemplate>
             <ItemTemplate>
                 <table>
@@ -336,16 +340,13 @@
                 </table>
             </ItemTemplate>
         </asp:FormView>
-
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-    </div>
+    
 
     <asp:SqlDataSource ID="SqlDataSourceExamDetails" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>"
-        SelectCommand="SELECT Exam.Exam_ID, Exam.ExamType_ID, Exam.Exam_Name, Exam.Price, Exam.Fasting, Exam.Smoke, Exam.Alcoholic_Drinks, ExamType.Exam_type, Exam.Urgent, Exam.Duration FROM Exam INNER JOIN ExamType ON Exam.ExamType_ID = ExamType.ExamType_ID WHERE (Exam.Exam_ID = @Exam_ID)" DeleteCommand="DELETE FROM [Exam] WHERE [Exam_ID] = @Exam_ID" InsertCommand="INSERT INTO Exam(Exam_Name, ExamType_ID, Price, Fasting, Smoke, Alcoholic_Drinks, Urgent, Duration) VALUES (@Exam_Name, @ExamType_ID, @Price, @Fasting, @Smoke, @Alcoholic_Drinks,,)" UpdateCommand="UPDATE Exam SET Exam_Name = @Exam_Name, ExamType_ID = @ExamType_ID, Price = @Price, Fasting = @Fasting, Smoke = @Smoke, Alcoholic_Drinks = @Alcoholic_Drinks, Urgent =, Duration = WHERE (Exam_ID = @Exam_ID)">
+        SelectCommand="SELECT Exam.Exam_ID, Exam.ExamType_ID, Exam.Exam_Name, Exam.Price, Exam.Fasting, Exam.Smoke, Exam.Alcoholic_Drinks, ExamType.Exam_type, Exam.Urgent, Exam.Duration FROM Exam INNER JOIN ExamType ON Exam.ExamType_ID = ExamType.ExamType_ID WHERE (Exam.Exam_ID = @Exam_ID)" 
+        DeleteCommand="DELETE FROM [Exam] WHERE [Exam_ID] = @Exam_ID" 
+        InsertCommand="INSERT INTO Exam(Exam_Name, ExamType_ID, Price, Fasting, Smoke, Alcoholic_Drinks, Urgent, Duration) VALUES (@Exam_Name, @ExamType_ID, @Price, @Fasting, @Smoke, @Alcoholic_Drinks, @Urgent, @Duration)" 
+        UpdateCommand="UPDATE Exam SET Exam_Name = @Exam_Name, ExamType_ID = @ExamType_ID, Price = @Price, Fasting = @Fasting, Smoke = @Smoke, Alcoholic_Drinks = @Alcoholic_Drinks, Urgent =, Duration = WHERE (Exam_ID = @Exam_ID)">
         <DeleteParameters>
             <asp:Parameter Name="Exam_ID" />
         </DeleteParameters>
@@ -374,6 +375,7 @@
             <asp:Parameter Name="Exam_ID" />
         </UpdateParameters>
     </asp:SqlDataSource>
+    </div>
 
 </asp:Content>
 

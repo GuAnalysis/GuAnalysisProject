@@ -15,7 +15,7 @@
             <asp:Label ID="labelInfo" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="Medium"></asp:Label>
         </div>
         <div style="margin:1em; margin-left:70ex">
-            <asp:Button ID="btClose" runat="server" Text="OK" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="Small" Font-Underline="False" OnClick="btClose_Click" />
+            <asp:Button ID="btClose" runat="server" Text="OK" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="Small" Font-Underline="False" OnClick="btClose_Click" style="left: -3px; top: 2px" />
         </div>
     </asp:Panel>
 
@@ -37,15 +37,14 @@
                                     <asp:ListItem Value="%">Show All</asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSourceSpeciality" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>" SelectCommand="SELECT [Speciality] FROM [Doctor]"></asp:SqlDataSource>
-                                
-                            </td>
+                        </td>
                     </tr>
                 </table>
-                <table>
+                <table style="position: absolute">
                     <tr>
-                        <td><asp:Button ID="btPerformSearch" runat="server" Text="Search" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" Font-Names="Arial" Font-Size="Small" Font-Strikeout="False" Height="40px" BorderWidth="1px" /></td><td>&nbsp;</td>
-                        <td><asp:Button ID="btCloseSearch" runat="server" Text="Search and close" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" Font-Names="Arial" Font-Size="Small" Font-Strikeout="False" Height="40px" BorderWidth="1px" style="left: 20px; top: -1px; width: 155px;" OnClick="btCloseSearch_Click" /></td><td>&nbsp;</td>
-                        <td><asp:Button ID="btClearSearch" runat="server" Text="Clear search" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" Font-Names="Arial" Font-Size="Small" Font-Strikeout="False" Height="40px" style="left: 28px; top: 0px; width: 122px;" BorderWidth="1px" OnClick="btClearSearch_Click" /></td>
+                        <td><asp:Button ID="btPerformSearch" runat="server" Text="Search" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" Font-Names="Arial" Font-Size="Small" Font-Strikeout="False" Height="40px" BorderWidth="1px" style="left: -1px; top: 1px" /></td>
+                        <td><asp:Button ID="btCloseSearch" runat="server" Text="Search and close" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" Font-Names="Arial" Font-Size="Small" Font-Strikeout="False" Height="40px" BorderWidth="1px" OnClick="btCloseSearch_Click" style="left: 0px; top: 1px" /></td>
+                        <td><asp:Button ID="btClearSearch" runat="server" Text="Clear search" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" Font-Names="Arial" Font-Size="Small" Font-Strikeout="False" Height="40px" BorderWidth="1px" OnClick="btClearSearch_Click" style="left: 1px; top: 2px" /></td>
                     </tr>
                 </table>
                 
@@ -55,13 +54,13 @@
         <br />
         <br />
 
-        <div style="margin-left:auto; margin-right:auto; width:800px">
+        <div style="margin-left:40ex; margin-right:auto; width:900px">
         <asp:GridView ID="gridviewDoctors" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Doctor_ID" DataSourceID="SqlDataSourceGridDoctors" ForeColor="#333333" GridLines="None" AllowSorting="True" OnSelectedIndexChanged="gridviewDoctors_SelectedIndexChanged">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:CommandField ButtonType="Button" SelectText="&gt;" ShowSelectButton="True">
-                <ControlStyle BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="X-Small" Height="35px" Width="50px" />
-                <ItemStyle VerticalAlign="Middle" />
+                <ControlStyle BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="X-Small" Height="35px" Width="40px" />
+                <HeaderStyle Width="50px" />
                 </asp:CommandField>
                 <asp:BoundField DataField="Doctor_name" HeaderText="Name" SortExpression="Doctor_name" />
                 <asp:BoundField DataField="Speciality" HeaderText="Speciality" SortExpression="Speciality" />
@@ -100,13 +99,13 @@
     </asp:SqlDataSource>
 
   
-    <asp:Panel ID="panelRemoveDoctor" runat="server" Visible="False">
-        <div style="margin: 1em; margin-left:50ex;">
+    <asp:Panel ID="panelRemoveDoctor" runat="server" BackColor="#FFCC99" Visible="False">
+            <center>
             <b>Are you sure you want to remove this Doctor?</b>
-        </div>
-        <div style="margin: 1em; margin-left:50ex;">
-            <asp:Button ID="btConfirmRemove" runat="server" Text="Yes, remove." BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="Small" OnClick="btConfirmRemove_Click" />
-            <asp:Button ID="btCancelRemove" runat="server" Text="No, cancel." BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="Small" OnClick="btCancelRemove_Click" />
+            </center>
+        <div style="margin: 1em; margin-left:67ex;">
+            <asp:Button ID="btConfirmRemove" runat="server" Text="Yes, remove." BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="Small" OnClick="btConfirmRemove_Click" style="left: -2px; top: 0px" />
+            <asp:Button ID="btCancelRemove" runat="server" Text="No, cancel." BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Names="Arial" Font-Size="Small" OnClick="btCancelRemove_Click" style="left: 2px; top: -1px" />
         </div>
     </asp:Panel>
 
@@ -121,7 +120,7 @@
                 <tr>
                     <td><b>Name</b></td>
                     <td>
-                        <asp:TextBox ID="tbName" runat="server" Text='<%# Bind("Doctor_name") %>'></asp:TextBox>
+                        <asp:TextBox ID="tbName" runat="server" Text='<%# Bind("Doctor_name") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" ErrorMessage="Name is required" Display="Dynamic" ControlToValidate="tbName">*</asp:RequiredFieldValidator>
@@ -130,13 +129,13 @@
                 <tr>
                     <td><b>Speciality</b></td>
                     <td>
-                        <asp:DropDownList ID="ddlSpeciality" runat="server" DataSourceID="SqlDataSourceSpeciality" DataTextField="Speciality" DataValueField="Speciality" SelectedValue='<%# Bind("Speciality") %>'></asp:DropDownList> 
+                        <asp:DropDownList ID="ddlSpeciality" runat="server" DataSourceID="SqlDataSourceSpeciality" DataTextField="Speciality" DataValueField="Speciality" SelectedValue='<%# Bind("Speciality") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:DropDownList> 
                     </td>
                 </tr>
                 <tr>
                     <td><b>Phone</b></td>
                     <td>
-                        <asp:TextBox ID="tbPhone" runat="server" Text='<%# Bind("Doctor_phone") %>'></asp:TextBox>
+                        <asp:TextBox ID="tbPhone" runat="server" Text='<%# Bind("Doctor_phone") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
                         <asp:CompareValidator ID="CompareValidatorPhone" runat="server" ErrorMessage="Phone number cannot be consisted of letters!" Operator="DataTypeCheck" SetFocusOnError="True" ToolTip="Phone number cannot be consisted of letters!" Type="Double" ControlToValidate="tbPhone" Display="Dynamic"></asp:CompareValidator>
 
                     </td>
@@ -144,14 +143,14 @@
                 <tr>
                     <td><b>E-mail</b></td>
                     <td>
-                        <asp:TextBox ID="tbEmail" runat="server" Text='<%# Bind("Doctor_mail") %>'></asp:TextBox>
+                        <asp:TextBox ID="tbEmail" runat="server" Text='<%# Bind("Doctor_mail") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Invalid e-mail" ClientIDMode="Inherit" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="tbEmail"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
                             <tr>
-                                <td><b>User Name:</b></td>
+                                <td><b>Username:</b></td>
                                 <td>
-                                    <asp:TextBox ID="TextBoxuserName" runat="server" Text='<%# Bind("username") %>' />
+                                    <asp:TextBox ID="TextBoxuserName" runat="server" Text='<%# Bind("username") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                                 </td>
                                 <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="User Name is required." ControlToValidate="TextBoxuserName" Display="Dynamic" ToolTip="Name is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
@@ -161,8 +160,8 @@
                             </tr>
             </table>
 
-            <asp:Button ID="btSave" runat="server" Text="Save" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Size="Small" CommandName="Update"/>
-            <asp:Button ID="btCancel" runat="server" Text="Cancel" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Size="Small" CommandName="Cancel"/>
+            <asp:Button ID="btSave" runat="server" Text="Save" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Size="Small" CommandName="Update"/>
+            <asp:Button ID="btCancel" runat="server" Text="Cancel" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Size="Small" CommandName="Cancel"/>
         </EditItemTemplate>
         <InsertItemTemplate>
             <asp:ValidationSummary ID="ValidationSummaryDoctors" runat="server"/>
@@ -171,7 +170,7 @@
                 <tr>
                     <td><b>Name</b></td>
                     <td>
-                        <asp:TextBox ID="tbName" runat="server" Text='<%# Bind("Doctor_name") %>'></asp:TextBox>
+                        <asp:TextBox ID="tbName" runat="server" Text='<%# Bind("Doctor_name") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" ErrorMessage="Name is required" Display="Dynamic" ControlToValidate="tbName">*</asp:RequiredFieldValidator>
@@ -180,13 +179,13 @@
                 <tr>
                     <td><b>Speciality</b></td>
                     <td>
-                        <asp:DropDownList ID="ddlSpeciality" runat="server" DataSourceID="SqlDataSourceSpeciality" DataTextField="Speciality" DataValueField="Speciality" SelectedValue='<%# Bind("Speciality") %>'></asp:DropDownList> 
+                        <asp:DropDownList ID="ddlSpeciality" runat="server" DataSourceID="SqlDataSourceSpeciality" DataTextField="Speciality" DataValueField="Speciality" SelectedValue='<%# Bind("Speciality") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:DropDownList> 
                     </td>
                 </tr>
                 <tr>
                     <td><b>Phone</b></td>
                     <td>
-                        <asp:TextBox ID="tbPhone" runat="server" Text='<%# Bind("Doctor_phone") %>'></asp:TextBox>
+                        <asp:TextBox ID="tbPhone" runat="server" Text='<%# Bind("Doctor_phone") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorPhone" runat="server" ErrorMessage="Phone number is required" Display="Dynamic" ControlToValidate="tbPhone">*</asp:RequiredFieldValidator>
@@ -196,7 +195,7 @@
                 <tr>
                     <td><b>E-mail</b></td>
                     <td>
-                        <asp:TextBox ID="tbEmail" runat="server" Text='<%# Bind("Doctor_mail") %>'></asp:TextBox>
+                        <asp:TextBox ID="tbEmail" runat="server" Text='<%# Bind("Doctor_mail") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorEmail" runat="server" ErrorMessage="E-mail is required" Display="Dynamic" ControlToValidate="tbEmail">*</asp:RequiredFieldValidator>
@@ -206,7 +205,7 @@
                 <tr>
                                 <td><b>User Name:</b></td>
                                 <td>
-                                    <asp:TextBox ID="TextBoxuserName" runat="server" Text='<%# Bind("username") %>' />
+                                    <asp:TextBox ID="TextBoxuserName" runat="server" Text='<%# Bind("username") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                                 </td>
                                 <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="User Name is required." ControlToValidate="TextBoxuserName" Display="Dynamic" ToolTip="Name is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
@@ -216,8 +215,8 @@
                             </tr>
             </table>
 
-            <asp:Button ID="btSave" runat="server" Text="Save" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Size="Small" CommandName="Insert"/>
-            <asp:Button ID="btCancel" runat="server" Text="Cancel" BackColor="#333333" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Size="Small" CommandName="Cancel" CausesValidation="False" />
+            <asp:Button ID="btSave" runat="server" Text="Save" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Size="Small" CommandName="Insert"/>
+            <asp:Button ID="btCancel" runat="server" Text="Cancel" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Size="Small" CommandName="Cancel" CausesValidation="False" />
         </InsertItemTemplate>
         <ItemTemplate>
             <asp:ValidationSummary ID="ValidationSummaryDoctors" runat="server"/>
