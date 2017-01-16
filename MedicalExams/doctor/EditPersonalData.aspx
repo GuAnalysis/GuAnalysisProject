@@ -158,6 +158,9 @@
                     </tr>
 
                 </table>
+
+                <br />
+                
                 <asp:Button ID="ButtonExam" runat="server" Text="Schedule Exam" BackColor="#5D7B9D" Font-Size="Smaller" Font-Underline="False" Visible="True" Width="10em" OnClick="ButtonExam_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px" />
             </ItemTemplate>
         </asp:FormView>

@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-    <div class="row">
+    <div class="row" style="margin-left:60ex">
         <h2><%: Title %>Personal Data</h2>
         <br />
         <br />
@@ -15,33 +15,33 @@
                  <table>
                     <tr>
                         <td><b>Name:</b></td>
-                        <td><asp:TextBox ID="Patient_nameTextBox" runat="server" Text='<%# Bind("Patient_name") %>' /></td>
+                        <td><asp:TextBox ID="Patient_nameTextBox" runat="server" Text='<%# Bind("Patient_name") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px" /></td>
                    </tr>
                     <tr>
                          <td><b>Address:</b></td>
-                        <td><asp:TextBox ID="Patient_addressTextBox" runat="server" Text='<%# Bind("Patient_address") %>' /></td>
+                        <td><asp:TextBox ID="Patient_addressTextBox" runat="server" Text='<%# Bind("Patient_address") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/></td>
                    
                     </tr>
                     <tr>
                         <td><b>Phone:</b></td>
-                        <td><asp:TextBox ID="Patient_phoneTextBox" runat="server" Text='<%# Bind("Patient_phone") %>' /></td>
+                        <td><asp:TextBox ID="Patient_phoneTextBox" runat="server" Text='<%# Bind("Patient_phone") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/></td>
                    
                     </tr>
                     <tr>
                         <td><b>Postal code:</b></td>
-                        <td><asp:TextBox ID="Postal_codeTextBox" runat="server" Text='<%# Bind("Postal_code") %>' /></td>
+                        <td><asp:TextBox ID="Postal_codeTextBox" runat="server" Text='<%# Bind("Postal_code") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/></td>
                    <td><asp:RegularExpressionValidator ID="RegularExpressionValidatorPostalCode" runat="server" ErrorMessage="Invalid postal code must be (eg:1234-546)" ValidationExpression="[0-9]{4}-[0-9]{3}" ControlToValidate="Postal_codeTextBox" Display="Dynamic">*</asp:RegularExpressionValidator></td>
                     </tr>
                     <tr>
 
                         <td><b>Birth date:</b></td>
-                        <td><asp:TextBox ID="Birth_dateTextBox" runat="server" Text='<%# Bind("Birth_date", "{0:d}") %>' /></td>
+                        <td><asp:TextBox ID="Birth_dateTextBox" runat="server" Text='<%# Bind("Birth_date", "{0:d}") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/></td>
                 
                     </tr>
                      <tr>
                      <td><b>Gender:</b></td>
                                 <td>
-                                    <asp:DropDownList ID="DropDownListGender" runat="server" DataTextField="Gender" DataValueField="Gender" SelectedValue='<%# Bind("Gender") %>'>
+                                    <asp:DropDownList ID="DropDownListGender" runat="server" DataTextField="Gender" DataValueField="Gender" SelectedValue='<%# Bind("Gender") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px">
                                         <asp:ListItem Value="M">Male</asp:ListItem>
                                         <asp:ListItem Value="F">Female</asp:ListItem>
                                     </asp:DropDownList>
@@ -50,7 +50,7 @@
                             </tr>
                      <tr>
                         <td><b>Email:</b></td>
-                        <td><asp:TextBox ID="emailTextBox" runat="server" Text='<%# Bind("email") %>' /></td>
+                        <td><asp:TextBox ID="emailTextBox" runat="server" Text='<%# Bind("email") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/></td>
                    
                     </tr>
                      <tr>
@@ -65,21 +65,21 @@
                 <table>
                     <tr>
                         <td><b>Name:</b></td>
-                        <td><asp:TextBox ID="Patient_nameTextBox" runat="server" Text='<%# Bind("Patient_name") %>' /></td>
+                        <td><asp:TextBox ID="Patient_nameTextBox" runat="server" Text='<%# Bind("Patient_name") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/></td>
                    </tr>
                     <tr>
                          <td><b>Address:</b></td>
-                        <td><asp:TextBox ID="Patient_addressTextBox" runat="server" Text='<%# Bind("Patient_address") %>' /></td>
+                        <td><asp:TextBox ID="Patient_addressTextBox" runat="server" Text='<%# Bind("Patient_address") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/></td>
                    
                     </tr>
                     <tr>
                         <td><b>Phone:</b></td>
-                        <td><asp:TextBox ID="Patient_phoneTextBox" runat="server" Text='<%# Bind("Patient_phone") %>' /></td>
+                        <td><asp:TextBox ID="Patient_phoneTextBox" runat="server" Text='<%# Bind("Patient_phone") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/></td>
                    
                     </tr>
                     <tr>
                         <td><b>Postal code:</b></td>
-                        <td><asp:TextBox ID="Postal_codeTextBox" runat="server" Text='<%# Bind("Postal_code") %>' /></td>
+                        <td><asp:TextBox ID="Postal_codeTextBox" runat="server" Text='<%# Bind("Postal_code") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/></td>
                    <td>
                       <asp:RegularExpressionValidator ID="RegularExpressionValidatorPostalCode" runat="server" ErrorMessage="Invalid postal code must be (eg:1234-546)" ValidationExpression="[0-9]{4}-[0-9]{3}" ControlToValidate="Postal_codeTextBox" Display="Dynamic">*</asp:RegularExpressionValidator>
                    </td>
@@ -87,27 +87,27 @@
                     <tr>
 
                         <td><b>Birth date:</b></td>
-                        <td><asp:TextBox ID="Birth_dateTextBox" runat="server" Text='<%# Bind("Birth_date", "{0:d}") %>' /></td>
+                        <td><asp:TextBox ID="Birth_dateTextBox" runat="server" Text='<%# Bind("Birth_date", "{0:d}") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/></td>
                 
                     </tr>
                     <tr>
                         <td><b>Gender:</b></td>
-                        <td><asp:TextBox ID="GenderTextBox" runat="server" Text='<%# Bind("Gender") %>' /></td>
+                        <td><asp:TextBox ID="GenderTextBox" runat="server" Text='<%# Bind("Gender") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/></td>
                    
                     </tr>
                     <tr>
                         <td><b>Health number:</b></td>
-                        <td><asp:TextBox ID="Health_numberTextBox" runat="server" Text='<%# Bind("Health_number") %>' /></td>
+                        <td><asp:TextBox ID="Health_numberTextBox" runat="server" Text='<%# Bind("Health_number") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/></td>
                   
                     </tr>
                     <tr>
                         <td><b>Username:</b></td>
-                        <td><asp:TextBox ID="usernameTextBox" runat="server" Text='<%# Bind("Patient_username") %>' /></td>
+                        <td><asp:TextBox ID="usernameTextBox" runat="server" Text='<%# Bind("Patient_username") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/></td>
                   
                     </tr>
                     <tr>
                         <td><b>Email:</b></td>
-                        <td><asp:TextBox ID="emailTextBox" runat="server" Text='<%# Bind("email") %>' /></td>
+                        <td><asp:TextBox ID="emailTextBox" runat="server" Text='<%# Bind("email") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/></td>
                    
                     </tr>
                     <tr>
@@ -119,13 +119,10 @@
             </InsertItemTemplate>
             <ItemTemplate>
                 <table>
-
-                 
                     <tr>
                         <td><b>Name:</b></td>
                         <td>
                             <asp:Label ID="Patient_nameLabel" runat="server" Text='<%# Bind("Patient_name") %>' /></td>
-
                     </tr>
 
                     <tr>
@@ -136,7 +133,7 @@
                     </tr>
 
                     <tr>
-                        <td></b>Phone:</b></td>
+                        <td><b>Phone:</b></td>
                         <td>
                             <asp:Label ID="Patient_phoneLabel" runat="server" Text='<%# Bind("Patient_phone") %>' /></td>
 
