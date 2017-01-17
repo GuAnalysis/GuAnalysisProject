@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -21,15 +22,13 @@ public partial class TypeofExams : System.Web.UI.Page
     public void showSuccessInfo(String message)
     {
         showInfo(message);
-        panelInfo.BackColor = System.Drawing.Color.PaleGreen;
-
+        panelInfo.ForeColor= Color.Lime;
     }
     public void showErrorInfo(String message)
     {
         showInfo(message);
-        panelInfo.BackColor = System.Drawing.Color.IndianRed;
+        panelInfo.ForeColor = Color.DarkRed;
     }
-
 
     protected void btSearch_Click(object sender, EventArgs e)
     {

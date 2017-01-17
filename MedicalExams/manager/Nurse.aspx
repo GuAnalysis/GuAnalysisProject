@@ -148,7 +148,7 @@
 
                                 </td>
                             </tr>
-                             <tr>
+                             <%--<tr>
                                 <td><b>Username:</b></td>
                                 <td>
                                     <asp:TextBox ID="TextBoxuserName" runat="server" Text='<%# Bind("username") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
@@ -158,7 +158,7 @@
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid name must be string" ValidationExpression="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" ControlToValidate="TextBoxuserName" Display="Dynamic">*</asp:RegularExpressionValidator>
 
                                 </td>
-                            </tr>
+                            </tr>--%>
                               <tr>
                                 <td><b>E-mail:</b></td>
                                 <td>
@@ -193,7 +193,7 @@
                                 </td>
                        
                               <td>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorPhone" runat="server" ErrorMessage="Phone number is required." ControlToValidate="TextBoxPhone" Display="Dynamic" ToolTip="Phone number is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorPhone1" runat="server" ErrorMessage="Phone number is required." ControlToValidate="TextBoxPhone" Display="Dynamic" ToolTip="Phone number is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorPhone" runat="server" ErrorMessage="Invalid Phone Number " ValidationExpression="(9[1236]\d) ?(\d{3}) ?(\d{3})" ControlToValidate="TextBoxPhone" Display="Dynamic">*</asp:RegularExpressionValidator>
 
                                    </td>
@@ -202,11 +202,11 @@
                                 <td><b>Birthdate:</b></td>
                                 <td>
                                  
-                                    <asp:TextBox ID="TextBoxBirthDate" runat="server" Text='<%# Bind("Nurse_Bithdate") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
+                                    <asp:TextBox ID="TextBoxBirthDate" runat="server" Text='<%# Bind("Nurse_Bithdate", "{0:d}") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
 
                                 </td>
                                  <td>
-                             <asp:RegularExpressionValidator ID="RegularExpressionValidatorBirthdate" runat="server" ErrorMessage="Invalid date must be (eg:aa.bb.cccc)" ValidationExpression="(\d{1,2}\.\d{1,2}\.\d{4})" ControlToValidate="TextBoxBirthDate" Display="Dynamic" Text='<%# Eval("Nurse_Bithdate", "{0:d}") %>'></asp:RegularExpressionValidator>
+                             <asp:RegularExpressionValidator ID="RegularExpressionValidatorBirthdate" runat="server" ErrorMessage="Invalid date must be (eg:aa.bb.cccc)" ValidationExpression="(\d{1,2}\.\d{1,2}\.\d{4})" ControlToValidate="TextBoxBirthDate" Display="Dynamic" Text='*'></asp:RegularExpressionValidator>
 
                                  </td>
                        
@@ -253,7 +253,7 @@
                                 </td>
                                 <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="User Name is required." ControlToValidate="TextBoxuserName" Display="Dynamic" ToolTip="Name is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid name must be string" ValidationExpression="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" ControlToValidate="TextBoxuserName" Display="Dynamic">*</asp:RegularExpressionValidator>
+<%--                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid name must be string" ValidationExpression="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" ControlToValidate="TextBoxuserName" Display="Dynamic">*</asp:RegularExpressionValidator>--%>
 
                                 </td>
                             </tr>
@@ -302,6 +302,7 @@
                                 </td>
                                  <td>
                                <asp:RegularExpressionValidator ID="RegularExpressionValidatorBirthdate" runat="server" ErrorMessage="Invalid date must be (eg:aa.bb.cccc)" ValidationExpression="(\d{1,2}\.\d{1,2}\.\d{4})" ControlToValidate="TextBoxBirthDate" Display="Dynamic">*</asp:RegularExpressionValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Birthdate is required." ControlToValidate="TextBoxBirthDate" Display="Dynamic" ToolTip="Birthdate  is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
 
                                  </td>
                             </tr>
@@ -314,6 +315,7 @@
                                 </td>
                                 <td>
                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorPostalCode" runat="server" ErrorMessage="Invalid postal code must be (eg:1234-546)" ValidationExpression="[0-9]{4}-[0-9]{3}" ControlToValidate="TextBoxPostal_code" Display="Dynamic">*</asp:RegularExpressionValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Postal code is required." ControlToValidate="TextBoxPostal_code" Display="Dynamic" ToolTip="Postal code  is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
 
                                 </td>
                        

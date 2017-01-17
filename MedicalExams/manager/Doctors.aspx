@@ -114,7 +114,7 @@
     <div style="margin-left:50ex">
     <asp:FormView ID="fvDoctor" runat="server" DataSourceID="SqlDataSourceDetailsDoctors" Width="500px" OnItemDeleted="fvDoctor_ItemDeleted" OnItemInserted="fvDoctor_ItemInserted" OnItemUpdated="fvDoctor_ItemUpdated" OnModeChanged="fvDoctor_ModeChanged" DataKeyNames="Doctor_ID">
         <EditItemTemplate>
-            <asp:ValidationSummary ID="ValidationSummaryDoctors" runat="server"/>
+            <asp:ValidationSummary ID="ValidationSummaryDoctors" runat="server" BackColor="#FF9999"/>
 
             <table>
                 <tr>
@@ -147,24 +147,24 @@
                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Invalid e-mail" ClientIDMode="Inherit" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="tbEmail"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
-                            <tr>
+                           <%-- <tr>
                                 <td><b>Username:</b></td>
                                 <td>
                                     <asp:TextBox ID="TextBoxuserName" runat="server" Text='<%# Bind("username") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
                                 </td>
                                 <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="User Name is required." ControlToValidate="TextBoxuserName" Display="Dynamic" ToolTip="Name is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid name must be string" ValidationExpression="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" ControlToValidate="TextBoxuserName" Display="Dynamic">*</asp:RegularExpressionValidator>
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid name must be string" ValidationExpression="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" ControlToValidate="TextBoxuserName" Display="Dynamic">*</asp:RegularExpressionValidator>
 
                                 </td>
-                            </tr>
+                            </tr>--%>
             </table>
 
             <asp:Button ID="btSave" runat="server" Text="Save" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Size="Small" CommandName="Update"/>
             <asp:Button ID="btCancel" runat="server" Text="Cancel" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Size="Small" CommandName="Cancel"/>
         </EditItemTemplate>
         <InsertItemTemplate>
-            <asp:ValidationSummary ID="ValidationSummaryDoctors" runat="server"/>
+            <asp:ValidationSummary ID="ValidationSummaryDoctors" runat="server" BackColor="#FF9999"/>
 
             <table>
                 <tr>
@@ -209,7 +209,7 @@
                                 </td>
                                 <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="User Name is required." ControlToValidate="TextBoxuserName" Display="Dynamic" ToolTip="Name is required." SetFocusOnError="True">*</asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid name must be string" ValidationExpression="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" ControlToValidate="TextBoxuserName" Display="Dynamic">*</asp:RegularExpressionValidator>
+                       <%-- <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid name must be string" ValidationExpression="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" ControlToValidate="TextBoxuserName" Display="Dynamic">*</asp:RegularExpressionValidator>--%>
 
                                 </td>
                             </tr>
@@ -219,7 +219,7 @@
             <asp:Button ID="btCancel" runat="server" Text="Cancel" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Font-Size="Small" CommandName="Cancel" CausesValidation="False" />
         </InsertItemTemplate>
         <ItemTemplate>
-            <asp:ValidationSummary ID="ValidationSummaryDoctors" runat="server"/>
+            <asp:ValidationSummary ID="ValidationSummaryDoctors" runat="server" BackColor="#FF9999"/>
 
             <table>
                 <tr>
