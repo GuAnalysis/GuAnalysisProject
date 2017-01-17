@@ -336,6 +336,7 @@
                                 </td>
                                 <td>
                               <asp:RegularExpressionValidator ID="RegularExpressionValidatorPostalCode" runat="server" ErrorMessage="Invalid postal code must be (eg:1234-546)" ValidationExpression="[0-9]{4}-[0-9]{3}" ControlToValidate="postalCodeTextBox" Display="Dynamic">*</asp:RegularExpressionValidator>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Postal code is required." ToolTip="Postal code is required." Text="*" Display="Dynamic" ControlToValidate="postalCodeTextBox" SetFocusOnError="True"></asp:RequiredFieldValidator>
 
                                 </td>
                             </tr>
@@ -348,6 +349,7 @@
                                 </td>
                                  <td>
                              <asp:RegularExpressionValidator ID="RegularExpressionValidatorBirthdate" runat="server" ErrorMessage="Invalid date must be (eg:dd.mm.yyyy)" ValidationExpression="(\d{1,2}\.\d{1,2}\.\d{4})" ControlToValidate="TextBoxBirthDate" Display="Dynamic">*</asp:RegularExpressionValidator>
+                              <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Birth date is required." ToolTip="Birth date is required." Text="*" Display="Dynamic" ControlToValidate="TextBoxBirthDate" SetFocusOnError="True"></asp:RequiredFieldValidator>
 
                                  </td>
                        

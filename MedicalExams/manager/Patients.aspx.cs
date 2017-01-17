@@ -24,13 +24,13 @@ public partial class Patients : System.Web.UI.Page
     public void ShowSuccessInfo(string message)
     {
         ShowInfo(message);
-        //labelInfo.ForeColor = Color.Lime;
+        labelInfo.ForeColor = Color.Lime;
     }
 
     public void ShoweErrorInfo(string message)
     {
         ShowInfo(message);
-        //labelInfo.ForeColor = Color.DarkRed;
+        labelInfo.ForeColor = Color.DarkRed;
     }
 
 

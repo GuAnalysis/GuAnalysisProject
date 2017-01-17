@@ -134,7 +134,7 @@
             OnItemInserted="FormViewExam_ItemInserted" OnItemUpdated="FormViewExam_ItemUpdated"
             OnModeChanged="FormViewExam_ModeChanged">
             <EditItemTemplate>
-                <asp:ValidationSummary ID="ValidationSummaryExam" runat="server" />
+                <asp:ValidationSummary ID="ValidationSummaryExam" runat="server" BackColor="#FF9999" />
                 <table>
 
                     <tr>
@@ -215,7 +215,7 @@
             </EditItemTemplate>
             <InsertItemTemplate>
 
-                <asp:ValidationSummary ID="ValidationSummaryExam" runat="server" />
+                <asp:ValidationSummary ID="ValidationSummaryExam" runat="server" BackColor="#FF9999" />
 
 
                 <table>
