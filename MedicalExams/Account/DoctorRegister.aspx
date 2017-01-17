@@ -37,7 +37,10 @@
                     <td><b>Phone</b></td>
                     <td>
                         <asp:TextBox ID="tbPhone" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"></asp:TextBox>
-                        <asp:CompareValidator ID="CompareValidatorPhone" runat="server" ErrorMessage="Phone number cannot be consisted of letters!" Operator="DataTypeCheck" SetFocusOnError="True" ToolTip="Phone number cannot be consisted of letters!" Type="Double" ControlToValidate="tbPhone" Display="Dynamic"></asp:CompareValidator>
+                        </td>
+                  <td>     
+                   <asp:CompareValidator ID="CompareValidatorPhone" runat="server" ErrorMessage="Phone number cannot be consisted of letters!" Operator="DataTypeCheck" SetFocusOnError="True" ToolTip="Phone number cannot be consisted of letters!" Type="Double" ControlToValidate="tbPhone" Display="Dynamic"></asp:CompareValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Phone is required" Display="Dynamic" ControlToValidate="tbPhone">*</asp:RequiredFieldValidator>
 
                     </td>
                 </tr>
@@ -45,7 +48,11 @@
                     <td><b>E-mail</b></td>
                     <td>
                         <asp:TextBox ID="tbEmail" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px" ></asp:TextBox>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Invalid e-mail" ClientIDMode="Inherit" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="tbEmail"></asp:RegularExpressionValidator>
+                        </td>
+                        <td>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server" ErrorMessage="Invalid e-mail" ClientIDMode="Inherit" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="tbEmail"></asp:RegularExpressionValidator>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Email is required" Display="Dynamic" ControlToValidate="tbEmail">*</asp:RequiredFieldValidator>
+
                     </td>
                 </tr>
             <tr>
