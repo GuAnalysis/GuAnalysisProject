@@ -45,6 +45,10 @@ public partial class TypeofExams : System.Web.UI.Page
         PanelSearchExam.Visible = false;
         btSearch.Enabled = true;
     }
+    protected void btClose_Click(object sender, EventArgs e)
+    {
+        panelInfo.Visible = false;
+    }
 
     protected void btClearSearch_Click(object sender, EventArgs e)
     {
