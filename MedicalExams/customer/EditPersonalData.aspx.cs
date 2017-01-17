@@ -13,4 +13,13 @@ public partial class customer_EditPersonalData : System.Web.UI.Page
     
     }
 
+
+
+
+
+
+    protected void MyExams_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/customer/Payments2.aspx");
+    }
 }

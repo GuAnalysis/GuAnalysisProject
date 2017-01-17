@@ -183,13 +183,16 @@
 
                     <tr>
                         <td>
-                            <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit"></asp:LinkButton></td>
+                              <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit"></asp:LinkButton></td>
+                     <td>     <asp:Button ID="MyExams" runat="server" Text="My Exams" BackColor="#5D7B9D" BorderColor="Black" BorderStyle="Solid" Font-Names="Arial" Font-Size="Small" Font-Strikeout="False" Height="40px" BorderWidth="1px" OnClick="MyExams_Click"/>     </td>
+
                     </tr>
 
                 </table>
 
             </ItemTemplate>
         </asp:FormView>
+
     </div>
         
         <asp:SqlDataSource ID="SqlDataSourcePatient" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>" 
