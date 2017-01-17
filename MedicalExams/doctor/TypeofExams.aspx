@@ -26,6 +26,7 @@
         <asp:Panel ID="PanelGridExam" runat="server">
 
             <div>
+                <center>
                 <asp:Panel ID="PanelSearchExam" runat="server" Visible="false" HorizontalAlign="Justify">
 
                     <table>
@@ -59,6 +60,7 @@
                     </table>
 
                 </asp:Panel>
+                    </center>
             </div>
 
             <br />

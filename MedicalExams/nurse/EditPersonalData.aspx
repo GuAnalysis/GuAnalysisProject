@@ -25,8 +25,7 @@
                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorName" runat="server" ErrorMessage="Invalid name must be string" ValidationExpression="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" ControlToValidate="nurseNameTextBox" Display="Dynamic">*</asp:RegularExpressionValidator>
 
                                 </td>
-                            </tr>
-<<<<<<< HEAD
+                           
                              <tr>
                                 <td><b>User Name:</b></td>
                                 <td>
@@ -38,10 +37,7 @@
 
                                 </td>
                             </tr>
-=======
-                            
->>>>>>> origin/master
-                              <tr>
+      <tr>
                                 <td><b>Email:</b></td>
                                 <td>
                                     <asp:TextBox ID="TextBoxEmail" runat="server" Text='<%# Bind("email") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px" />
@@ -84,7 +80,7 @@
                                 <td><b>Birthdate:</b></td>
                                 <td>
                                  
-                                    <asp:TextBox ID="TextBoxBirthDate" runat="server" Text='<%# Bind("Nurse_Bithdate") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
+                                    <asp:TextBox ID="TextBoxBirthDate" runat="server" Text='<%# Bind("Nurse_Bithdate", "{0:d}") %>' BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="35px"/>
 
                                 </td>
                                  <td>
