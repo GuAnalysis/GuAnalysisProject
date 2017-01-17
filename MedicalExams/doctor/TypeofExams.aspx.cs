@@ -68,10 +68,7 @@ public partial class TypeofExams : System.Web.UI.Page
         }
     }
 
-    protected void btClose_Click(object sender, EventArgs e)
-    {
-        panelInfo.Visible = false;
-    }
+    
 
     protected void btDelete_Click(object sender, EventArgs e)
     {
