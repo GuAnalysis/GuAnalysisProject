@@ -22,7 +22,17 @@
                     <br />
 
                    
-                    
+                    <asp:Panel ID="panelInfo" runat="server" Visible="false">
+            <div style="margin: 1em; margin-left:65ex">
+                <asp:Label ID="LabelInfo" runat="server"></asp:Label>
+            </div>
+
+            <div style="margin-bottom: 1ex; margin-left:70ex">
+                <center>
+                <asp:Button ID="btClose" runat="server" Text="OK" BackColor="#5D7B9D" Font-Size="Small" OnClick="btClose_Click" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" style="left: -2px; top: 0px" Font-Names="Arial" />
+                </center>
+                    </div>
+        </asp:Panel>
                     <%-- <asp:Panel ID="PanelSearchExam" runat="server" GroupingText="Search" BackColor="#F7FAFE" Visible="false" HorizontalAlign="Justify">
                         <table>
                         <tr>
@@ -36,7 +46,8 @@
                         <asp:Button ID="btCloseSearch" runat="server" Text="Search and close" BackColor="#5D7B9D" BorderColor="#003366" Font-Size="Smaller" Width="139px" />
                         <asp:Button ID="btClearSearch" runat="server" Text="Clear search" BackColor="#5D7B9D" BorderColor="#003366" Font-Size="Smaller"/>
                 </asp:Panel>--%>
-                    <%--<asp:Panel ID="PanelDeleteExam" runat="server" BackColor="#F7FAFE" Visible="false">
+                    <center>
+                    <asp:Panel ID="PanelDeleteSchedule" runat="server" BackColor="#F7FAFE" Visible="false">
                         <div style="margin: 1em">
                             <b>Are you sure you want to delete the exam?</b>
                         </div>
@@ -44,8 +55,9 @@
                             <asp:Button ID="btConfirmDelete" runat="server" Text="Yes, delete" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btConfirmDelete_Click" />
                             <asp:Button ID="btCanceldelete" runat="server" Text="No, cancel!" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btCanceldelete_Click" />
                         </div>
-                   </asp:Panel>--%>
-                    <center>
+                   </asp:Panel>
+                        </center>
+                        <center>
 
                    
                     <asp:GridView ID="GridViewScheduler" runat="server" 
@@ -81,14 +93,15 @@
                      <asp:Button ID="btSendEmail" runat="server" Text="Send Email" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btSendEmail_Click"/>
                      <asp:Button ID="btNew" runat="server" Text="New" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btNew_Click" />
                      <asp:Button ID="btEdit" runat="server" Text="Edit" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btEdit_Click" />
-                     <asp:Button ID="btDelete" runat="server" Text="Delete" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btDelete_Click" Enabled="False"/>
+                     <asp:Button ID="btDelete" runat="server" Text="Delete" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btDelete_Click"/>
                      <asp:Button ID="btSearch" runat="server" Text="Search" BackColor="#5D7B9D" Font-Size="Smaller"/>
                   
                    </center>
                     <asp:SqlDataSource ID="SqlDataSourceSchedulerTable" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>" 
                         DeleteCommand="DELETE FROM [Scheduler] WHERE [Scheduler_ID] = @Scheduler_ID" 
                         InsertCommand="INSERT INTO Scheduler(Scheduler_ID, Patient_ID, Doctor_ID, Nurse_ID, Exam_ID, Exam_date, Performed, Exam_hour) VALUES (@Scheduler_ID, @Patient_ID, @Doctor_ID, @Nurse_ID, @Exam_ID, @Exam_date, @Performed, @Exam_hour)" 
-                        SelectCommand="SELECT Scheduler_ID, Patient_ID, Doctor_ID, Nurse_ID, Exam_ID, Exam_date, Performed, Exam_hour FROM Scheduler" 
+                        SelectCommand="SELECT Scheduler_ID, Patient_ID, Doctor_ID, Nurse_ID, Exam_ID, Exam_date, Performed, Exam_hour FROM Scheduler
+" 
                         UpdateCommand="UPDATE Scheduler SET Patient_ID = @Patient_ID, Doctor_ID = @Doctor_ID, Nurse_ID = @Nurse_ID, Exam_ID = @Exam_ID, Exam_date = @Exam_date, Performed = @Performed, Exam_hour = @Exam_hour WHERE (Scheduler_ID = @Scheduler_ID)">
                         <DeleteParameters>
                             <asp:Parameter Name="Scheduler_ID" Type="Int32" />
@@ -608,11 +621,11 @@
                 </asp:Panel>
                 <asp:SqlDataSource ID="SqlDataSourceScheduler" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>" 
                     SelectCommand="SELECT Scheduler_ID, Patient_ID, Doctor_ID, Nurse_ID, Exam_ID, Exam_date, Performed, Exam_hour FROM Scheduler WHERE (Scheduler_ID = @Scheduler_ID)" 
-                    DeleteCommand="DELETE FROM Scheduler WHERE (Exam_ID = @Exam_ID)" 
+                    DeleteCommand="DELETE FROM Scheduler WHERE (Scheduler_ID = @Scheduler_ID)" 
                     InsertCommand="INSERT INTO Scheduler(Patient_ID, Doctor_ID, Nurse_ID, Exam_ID, Exam_date, Performed, Exam_hour) VALUES (@Patient_ID, @Doctor_ID, @Nurse_ID, @Exam_ID, @Exam_date, @Performed, @Exam_hour)" 
                     UpdateCommand="UPDATE Scheduler SET Patient_ID = @Patient_ID, Doctor_ID = @Doctor_ID, Nurse_ID = @Nurse_ID, Exam_ID = @Exam_ID, Exam_date = @Exam_date, Performed = @Performed, Exam_hour = @Exam_hour WHERE (Scheduler_ID = @Scheduler_ID)">
                     <DeleteParameters>
-                        <asp:Parameter Name="Exam_ID" />
+                        <asp:Parameter Name="Scheduler_ID" />
                     </DeleteParameters>
                     <InsertParameters>
                         <asp:Parameter Name="Patient_ID" />
