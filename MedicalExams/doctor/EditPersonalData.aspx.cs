@@ -18,5 +18,10 @@ public partial class doctor_EditPersonalData : System.Web.UI.Page
         Response.Redirect("~/doctor/ExamScheduler.aspx");
     }
 
-   
+
+
+    protected void ButtonSeeExams_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/doctor/TypeofExams.aspx");
+    }
 }

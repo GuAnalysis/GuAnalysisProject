@@ -62,7 +62,8 @@
                             <asp:BoundField DataField="Doctor_ID" HeaderText="Doctor ID" SortExpression="Doctor_ID" />
                             <asp:BoundField DataField="Nurse_ID" HeaderText="Nurse ID" SortExpression="Nurse_ID" />
                             <asp:BoundField DataField="Exam_ID" HeaderText="Exam ID" SortExpression="Exam_ID" />
-                            <asp:BoundField DataField="Exam_date" HeaderText="Exam date" SortExpression="Exam_date" />
+                            <asp:BoundField DataField="Exam_date" HeaderText="Exam date" SortExpression="Exam_date" DataFormatString="{0:d}" />
+                            <asp:BoundField DataField="Exam_hour" HeaderText="Exam_hour" SortExpression="Exam_hour" />
                             <asp:CheckBoxField DataField="Performed" HeaderText="Performed" SortExpression="Performed" />
                         </Columns>
                         <EditRowStyle BackColor="#999999" />
@@ -76,6 +77,7 @@
                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                     </asp:GridView>
+                        <br />
                      <asp:Button ID="btSendEmail" runat="server" Text="Send Email" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btSendEmail_Click"/>
                      <asp:Button ID="btNew" runat="server" Text="New" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btNew_Click" />
                      <asp:Button ID="btEdit" runat="server" Text="Edit" BackColor="#5D7B9D" Font-Size="Smaller" OnClick="btEdit_Click" />
@@ -85,9 +87,9 @@
                    </center>
                     <asp:SqlDataSource ID="SqlDataSourceSchedulerTable" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>" 
                         DeleteCommand="DELETE FROM [Scheduler] WHERE [Scheduler_ID] = @Scheduler_ID" 
-                        InsertCommand="INSERT INTO [Scheduler] ([Scheduler_ID], [Patient_ID], [Doctor_ID], [Nurse_ID], [Exam_ID], [Exam_date], [Performed]) VALUES (@Scheduler_ID, @Patient_ID, @Doctor_ID, @Nurse_ID, @Exam_ID, @Exam_date, @Performed)" 
-                        SelectCommand="SELECT [Scheduler_ID], [Patient_ID], [Doctor_ID], [Nurse_ID], [Exam_ID], [Exam_date], [Performed] FROM [Scheduler]" 
-                        UpdateCommand="UPDATE [Scheduler] SET [Patient_ID] = @Patient_ID, [Doctor_ID] = @Doctor_ID, [Nurse_ID] = @Nurse_ID, [Exam_ID] = @Exam_ID, [Exam_date] = @Exam_date, [Performed] = @Performed WHERE [Scheduler_ID] = @Scheduler_ID">
+                        InsertCommand="INSERT INTO Scheduler(Scheduler_ID, Patient_ID, Doctor_ID, Nurse_ID, Exam_ID, Exam_date, Performed, Exam_hour) VALUES (@Scheduler_ID, @Patient_ID, @Doctor_ID, @Nurse_ID, @Exam_ID, @Exam_date, @Performed, @Exam_hour)" 
+                        SelectCommand="SELECT Scheduler_ID, Patient_ID, Doctor_ID, Nurse_ID, Exam_ID, Exam_date, Performed, Exam_hour FROM Scheduler" 
+                        UpdateCommand="UPDATE Scheduler SET Patient_ID = @Patient_ID, Doctor_ID = @Doctor_ID, Nurse_ID = @Nurse_ID, Exam_ID = @Exam_ID, Exam_date = @Exam_date, Performed = @Performed, Exam_hour = @Exam_hour WHERE (Scheduler_ID = @Scheduler_ID)">
                         <DeleteParameters>
                             <asp:Parameter Name="Scheduler_ID" Type="Int32" />
                         </DeleteParameters>
@@ -99,6 +101,7 @@
                             <asp:Parameter Name="Exam_ID" Type="Int32" />
                             <asp:Parameter DbType="Date" Name="Exam_date" />
                             <asp:Parameter Name="Performed" Type="Boolean" />
+                            <asp:Parameter Name="Exam_hour" />
                         </InsertParameters>
                         <UpdateParameters>
                             <asp:Parameter Name="Patient_ID" Type="Int32" />
@@ -107,6 +110,7 @@
                             <asp:Parameter Name="Exam_ID" Type="Int32" />
                             <asp:Parameter DbType="Date" Name="Exam_date" />
                             <asp:Parameter Name="Performed" Type="Boolean" />
+                            <asp:Parameter Name="Exam_hour" />
                             <asp:Parameter Name="Scheduler_ID" Type="Int32" />
                         </UpdateParameters>
                     </asp:SqlDataSource>
@@ -155,7 +159,7 @@
                                  <tr>
                                     <td>Exam date:</td>
                                     <td>
-                                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Exam_date") %>' />
+                                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Exam_date", "{0:d}") %>' />
 
                                     </td>
                                 </tr>
@@ -353,7 +357,7 @@
                     <tr>
                      
                         <td>
-                            <asp:DropDownList ID="ddExamHour" runat="server" OnSelectedIndexChanged="ddExamHour_SelectedIndexChanged">
+                            <asp:DropDownList ID="ddExamHour" runat="server" OnSelectedIndexChanged="ddExamHour_SelectedIndexChanged" SelectedValue='<%# Bind("Exam_hour") %>'>
                                 <asp:ListItem Value="%">Exam hour</asp:ListItem>
                                 <asp:ListItem>8:00</asp:ListItem>
                                 <asp:ListItem>9:00</asp:ListItem>
@@ -568,7 +572,7 @@
                      
                         <td>
                             <asp:Label ID="ExamHourLabel" runat="server"></asp:Label>
-                            <asp:DropDownList ID="ddExamHour" runat="server" OnSelectedIndexChanged="ddExamHour_SelectedIndexChanged" AutoPostBack="True">
+                            <asp:DropDownList ID="ddExamHour" runat="server" OnSelectedIndexChanged="ddExamHour_SelectedIndexChanged" AutoPostBack="True" SelectedValue='<%# Bind("Exam_hour") %>'>
                                 <asp:ListItem Value="%">Exam hour</asp:ListItem>
                                 <asp:ListItem>8:00</asp:ListItem>
                                 <asp:ListItem>9:00</asp:ListItem>
@@ -603,10 +607,10 @@
                 </center>
                 </asp:Panel>
                 <asp:SqlDataSource ID="SqlDataSourceScheduler" runat="server" ConnectionString="<%$ ConnectionStrings:med_exConnectionString1 %>" 
-                    SelectCommand="SELECT Scheduler_ID, Patient_ID, Doctor_ID, Nurse_ID, Exam_ID, Exam_date, Performed FROM Scheduler WHERE (Scheduler_ID = @Scheduler_ID)" 
+                    SelectCommand="SELECT Scheduler_ID, Patient_ID, Doctor_ID, Nurse_ID, Exam_ID, Exam_date, Performed, Exam_hour FROM Scheduler WHERE (Scheduler_ID = @Scheduler_ID)" 
                     DeleteCommand="DELETE FROM Scheduler WHERE (Exam_ID = @Exam_ID)" 
-                    InsertCommand="INSERT INTO Scheduler (Patient_ID, Doctor_ID, Nurse_ID, Exam_ID, Exam_date, Performed) VALUES (@Patient_ID,@Doctor_ID,@Nurse_ID,@Exam_ID,@Exam_date,@Performed)" 
-                    UpdateCommand="UPDATE Scheduler SET Patient_ID = @Patient_ID, Doctor_ID = @Doctor_ID, Nurse_ID = @Nurse_ID, Exam_ID = @Exam_ID, Exam_date = @Exam_date, Performed = @Performed WHERE (Scheduler_ID = @Scheduler_ID)">
+                    InsertCommand="INSERT INTO Scheduler(Patient_ID, Doctor_ID, Nurse_ID, Exam_ID, Exam_date, Performed, Exam_hour) VALUES (@Patient_ID, @Doctor_ID, @Nurse_ID, @Exam_ID, @Exam_date, @Performed, @Exam_hour)" 
+                    UpdateCommand="UPDATE Scheduler SET Patient_ID = @Patient_ID, Doctor_ID = @Doctor_ID, Nurse_ID = @Nurse_ID, Exam_ID = @Exam_ID, Exam_date = @Exam_date, Performed = @Performed, Exam_hour = @Exam_hour WHERE (Scheduler_ID = @Scheduler_ID)">
                     <DeleteParameters>
                         <asp:Parameter Name="Exam_ID" />
                     </DeleteParameters>
@@ -617,7 +621,7 @@
                         <asp:Parameter Name="Exam_ID" />
                         <asp:Parameter Name="Exam_date" />
                         <asp:Parameter Name="Performed" />
-                        <asp:Parameter Name="Scheduler_ID" />
+                        <asp:Parameter Name="Exam_hour" />
                     </InsertParameters>
                     <SelectParameters>
                         <asp:ControlParameter ControlID="GridViewScheduler" Name="Scheduler_ID" PropertyName="SelectedValue" />
@@ -629,6 +633,7 @@
                         <asp:Parameter Name="Exam_ID" />
                         <asp:Parameter Name="Exam_date" />
                         <asp:Parameter Name="Performed" />
+                        <asp:Parameter Name="Exam_hour" />
                         <asp:Parameter Name="Scheduler_ID" />
                     </UpdateParameters>
             </asp:SqlDataSource>  
